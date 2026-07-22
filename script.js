@@ -14,3 +14,28 @@ if ('IntersectionObserver' in window) {
 } else {
   revealItems.forEach((item) => item.classList.add('is-visible'));
 }
+
+const pilotForm = document.querySelector('#pilot-form');
+
+if (pilotForm) {
+  pilotForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const data = new FormData(pilotForm);
+    const subject = `Заявка на пилот SILVER Ag+ — ${data.get('company') || data.get('name')}`;
+    const body = [
+      `Имя: ${data.get('name') || '—'}`,
+      `Компания: ${data.get('company') || '—'}`,
+      `Телефон: ${data.get('phone') || '—'}`,
+      `Почта: ${data.get('email') || '—'}`,
+      '',
+      'Задача:',
+      data.get('task') || '—'
+    ].join('\n');
+
+    const status = document.querySelector('#form-status');
+    if (status) status.textContent = 'Заявка подготовлена. Открываем почтовое приложение…';
+
+    window.location.href = `mailto:service@uwingroup.ru?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  });
+}
