@@ -179,8 +179,9 @@ sup { font-size: .54em; vertical-align: super; }
 .pulse-line i { width: 7px; height: 7px; border-radius: 50%; background: #078da9; animation: signal 1.8s infinite; }
 .pulse-line i:nth-child(2) { animation-delay: .2s; }.pulse-line i:nth-child(3) { animation-delay: .4s; }.pulse-line i:nth-child(4) { animation-delay: .6s; }.pulse-line i:nth-child(5) { animation-delay: .8s; }.pulse-line i:nth-child(6) { animation-delay: 1s; }
 .journey__facts { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 24px; }
-.fact-card { padding: 34px; border: 1px solid var(--silver-200); border-radius: 18px; background: var(--white); }
+.fact-card { padding: 34px; position: relative; overflow: hidden; border: 1px solid var(--silver-200); border-radius: 18px; background: var(--white); }
 .fact-card--accent { background: linear-gradient(135deg, #e9fbfd, var(--white)); border-color: #bfeaf1; }
+.fact-card--accent::before { content: ""; width: 122%; height: 54px; position: absolute; left: -11%; bottom: -38px; border-radius: 48% 52% 0 0 / 58% 66% 0 0; background: linear-gradient(90deg, rgba(32,199,232,.04), rgba(32,199,232,.22), rgba(126,232,245,.06)); box-shadow: 0 -1px 0 rgba(18,151,181,.16), 0 -13px 30px rgba(32,199,232,.05); animation: water-breathe 6.8s ease-in-out infinite; pointer-events: none; }
 .fact-card__index { color: #8296ab; font-size: 9px; font-weight: 800; letter-spacing: .18em; }
 .fact-card h3 { max-width: 600px; margin: 24px 0 14px; color: var(--navy-800); font-size: clamp(24px, 2.3vw, 38px); line-height: 1.08; letter-spacing: -.04em; }
 .fact-card p { max-width: 650px; margin: 0; color: var(--muted); line-height: 1.6; }
@@ -287,8 +288,9 @@ sup { font-size: .54em; vertical-align: super; }
 .comparison-row--legacy small { padding-left: 16px; color: #8597aa; }
 .comparison-row--silver { grid-template-columns: 180px 5fr 42px; }
 .comparison-row--silver > strong { color: #078eaa; }
-.comparison-row--silver div { min-height: 58px; padding: 18px 20px; position: relative; color: var(--navy-800); background: linear-gradient(90deg, #64d8ea, #d0f6f9); }
-.comparison-row--silver div::after { content: ""; position: absolute; left: 24%; right: 5%; top: 50%; height: 1px; background: rgba(7,142,170,.35); box-shadow: 80px 0 0 rgba(7,142,170,.35), 160px 0 0 rgba(7,142,170,.35); }
+.comparison-row--silver div { min-height: 58px; padding: 18px 20px; position: relative; overflow: hidden; isolation: isolate; color: var(--navy-800); background: linear-gradient(90deg, #64d8ea, #d0f6f9); }
+.comparison-row--silver div::before { content: ""; width: 24%; height: 190%; position: absolute; z-index: 0; left: -28%; top: -45%; transform: skewX(-16deg); background: linear-gradient(90deg, transparent, rgba(255,255,255,.34), rgba(126,232,245,.2), transparent); filter: blur(1px); animation: water-current 8.4s ease-in-out infinite; pointer-events: none; }
+.comparison-row--silver div::after { content: ""; position: absolute; z-index: 0; left: 24%; right: 5%; top: 50%; height: 1px; background: rgba(7,142,170,.28); box-shadow: 80px 0 0 rgba(7,142,170,.28), 160px 0 0 rgba(7,142,170,.28); }
 .comparison-row--silver div span { position: relative; z-index: 1; font-size: 13px; font-weight: 800; }
 .comparison-row--silver i { min-height: 58px; display: grid; place-items: center; color: var(--navy-800); background: #d0f6f9; font-size: 24px; font-style: normal; }
 .difference-grid { margin-top: 22px; display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
@@ -380,10 +382,14 @@ sup { font-size: .54em; vertical-align: super; }
 .faq-item { border: 1px solid #d7e3eb; border-radius: 16px; background: var(--white); box-shadow: 0 12px 34px rgba(35,68,101,.045); overflow: hidden; }
 .faq-item summary { min-height: 96px; padding: 22px 24px; display: grid; grid-template-columns: 42px 1fr auto; align-items: center; gap: 15px; cursor: pointer; list-style: none; }
 .faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary:focus-visible { outline: 2px solid rgba(32,199,232,.55); outline-offset: -2px; border-radius: 16px; }
 .faq-item summary > span { color: #0a91b0; font-size: 12px; font-weight: 800; }
 .faq-item summary strong { color: var(--navy-800); font-size: 18px; line-height: 1.25; }
-.faq-item summary i { width: 32px; height: 32px; display: grid; place-items: center; border-radius: 50%; color: var(--navy-800); background: #e8f5f8; font-size: 22px; font-style: normal; transition: transform .25s var(--ease); }
-.faq-item[open] summary i { transform: rotate(45deg); }
+.faq-item summary i { width: 34px; height: 34px; position: relative; z-index: 0; display: grid; place-items: center; color: var(--navy-800); font-size: 21px; font-style: normal; transition: transform .25s var(--ease), color .25s ease; }
+.faq-item summary i::before { content: ""; position: absolute; z-index: -1; inset: 4px; border-radius: 50% 50% 50% 0; background: #dff3f7; transform: rotate(135deg); transition: transform .25s var(--ease), background .25s ease, box-shadow .25s ease; }
+.faq-item summary:hover i::before { background: #cceef3; box-shadow: 0 0 0 5px rgba(32,199,232,.08); }
+.faq-item[open] summary i { color: #087f99; transform: rotate(45deg); }
+.faq-item[open] summary i::before { background: #cceff4; transform: rotate(90deg); }
 .faq-item > div { padding: 0 24px 24px 81px; }
 .faq-item p { margin: 0; color: var(--muted); line-height: 1.6; }
 
@@ -442,6 +448,8 @@ sup { font-size: .54em; vertical-align: super; }
 @keyframes signal { 0%,100% { opacity: .45; transform: scale(.82); } 50% { opacity: 1; transform: scale(1.16); } }
 @keyframes orbit { to { transform: rotate(360deg); } }
 @keyframes molecule-pulse { 0%,100% { opacity: .35; transform: scale(.86); } 50% { opacity: 1; transform: scale(1.08); } }
+@keyframes water-breathe { 0%,100% { transform: translate3d(-16px, 1px, 0) rotate(-.4deg); opacity: .58; } 50% { transform: translate3d(18px, -5px, 0) rotate(.5deg); opacity: .92; } }
+@keyframes water-current { 0%,12% { left: -28%; opacity: 0; } 24% { opacity: .46; } 72% { opacity: .3; } 88%,100% { left: 112%; opacity: 0; } }
 
 @media (max-width: 1180px) {
   :root { --wrap: min(calc(100% - 48px), 1080px); }
