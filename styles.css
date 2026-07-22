@@ -177,6 +177,7 @@ body.menu-open { overflow: hidden; }
 .control-map__labels span { padding: 0 6px 18px; border-bottom: 1px solid var(--silver-200); }
 .control-map__legacy, .control-map__silver { position: relative; display: grid; grid-template-columns: 1fr 2fr auto 3fr; align-items: center; margin-top: 26px; }
 .control-map__legacy span, .control-map__silver span { font-size: 10px; letter-spacing: .16em; font-weight: 800; text-transform: uppercase; white-space: nowrap; }
+.control-map__legacy .control-map__legacy-title { line-height: 1.35; }
 .control-map__legacy strong { min-height: 50px; padding: 17px 18px 17px 20px; color: #667a90; background: #e5ebf1; font-size: 13px; }
 .control-map__legacy i { width: 42px; height: 42px; margin-left: -1px; display: grid; place-items: center; border: 3px solid #9aabba; border-radius: 50%; color: #8799aa; font-size: 25px; font-style: normal; }
 .control-map__legacy small { margin-left: 14px; color: #8597aa; }
