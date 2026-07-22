@@ -1,15 +1,3 @@
-const servicePanel = document.querySelector('#service');
-
-if (window.location.hash === '#service' && servicePanel) {
-  servicePanel.open = true;
-}
-
-window.addEventListener('hashchange', () => {
-  if (window.location.hash === '#service' && servicePanel) {
-    servicePanel.open = true;
-  }
-});
-
 const revealItems = document.querySelectorAll('.reveal');
 
 if ('IntersectionObserver' in window) {
