@@ -39,3 +39,32 @@ if (pilotForm) {
     window.location.href = `mailto:service@uwingroup.ru?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   });
 }
+
+const siteHeader = document.querySelector('.site-header');
+const menuToggle = document.querySelector('.menu-toggle');
+const siteNav = document.querySelector('#site-nav');
+
+if (siteHeader && menuToggle && siteNav) {
+  const setMenuState = (isOpen) => {
+    siteHeader.classList.toggle('is-menu-open', isOpen);
+    document.body.classList.toggle('menu-open', isOpen);
+    menuToggle.setAttribute('aria-expanded', String(isOpen));
+    menuToggle.setAttribute('aria-label', isOpen ? 'Закрыть меню' : 'Открыть меню');
+  };
+
+  menuToggle.addEventListener('click', () => {
+    setMenuState(menuToggle.getAttribute('aria-expanded') !== 'true');
+  });
+
+  siteNav.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => setMenuState(false));
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') setMenuState(false);
+  });
+
+  window.matchMedia('(min-width: 1181px)').addEventListener('change', (event) => {
+    if (event.matches) setMenuState(false);
+  });
+}
