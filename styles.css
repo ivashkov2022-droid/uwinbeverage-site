@@ -433,7 +433,8 @@ body.menu-open { overflow: hidden; }
 .pilot-form .button { width: 100%; border: 0; cursor: pointer; }
 .form-note { margin: -6px 0 0; color: #7a8d9f; font-size: 11px; text-align: center; }
 
-.js-pilot-modal-open { border: 0; cursor: pointer; }
+.js-pilot-modal-open,
+.js-scheme-modal-open { border: 0; cursor: pointer; }
 body.modal-open { overflow: hidden; }
 .pilot-modal[hidden] { display: none; }
 .pilot-modal { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; padding: 24px; }
@@ -484,7 +485,9 @@ body.modal-open { overflow: hidden; }
 .pilot-modal__form { padding: 28px 42px 36px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .pilot-modal__form > label { min-width: 0; display: grid; gap: 8px; }
 .pilot-modal__form > label:first-child { grid-column: 1 / -1; }
+.pilot-modal__form .pilot-modal__wide { grid-column: 1 / -1; }
 .pilot-modal__form label > span { color: #c9d8e6; font-size: 11px; font-weight: 750; }
+.pilot-modal__form label > span i { margin-left: 5px; color: #7891a8; font-size: 10px; font-style: normal; font-weight: 500; }
 .pilot-modal__form input:not([type="checkbox"]) {
   width: 100%;
   height: 52px;
@@ -797,6 +800,7 @@ body.modal-open { overflow: hidden; }
   .pilot-modal__form { padding: 22px 20px 26px; grid-template-columns: 1fr; gap: 14px; }
   .pilot-modal__form > label,
   .pilot-modal__form > label:first-child,
+  .pilot-modal__form .pilot-modal__wide,
   .pilot-modal__form .pilot-modal__consent,
   .pilot-modal__form .button,
   .pilot-modal__note { grid-column: auto; }

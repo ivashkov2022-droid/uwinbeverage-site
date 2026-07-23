@@ -40,55 +40,57 @@ if (pilotForm) {
   });
 }
 
-const pilotModal = document.querySelector('#pilot-modal');
-const pilotModalOpeners = document.querySelectorAll('.js-pilot-modal-open');
-const pilotModalForm = pilotModal?.querySelector('.pilot-modal__form');
-const pilotModalStatus = document.querySelector('#pilot-modal-status');
+const setupLeadModal = ({ modalSelector, openerSelector, closeSelector, errorMessages }) => {
+  const modal = document.querySelector(modalSelector);
+  const openers = document.querySelectorAll(openerSelector);
+  const form = modal?.querySelector('.pilot-modal__form');
+  const status = modal?.querySelector('[aria-live]');
 
-if (pilotModal && pilotModalOpeners.length && pilotModalForm) {
+  if (!modal || !openers.length || !form || !status) return;
+
   let activeTrigger = null;
   let closeTimer = null;
 
   const focusableSelector = 'button:not([disabled]), a[href], input:not([disabled]):not([type="hidden"]):not([tabindex="-1"])';
 
-  const openPilotModal = (trigger) => {
+  const openModal = (trigger) => {
     if (closeTimer) window.clearTimeout(closeTimer);
     activeTrigger = trigger || activeTrigger;
-    pilotModal.hidden = false;
+    modal.hidden = false;
     document.body.classList.add('modal-open');
     window.requestAnimationFrame(() => {
-      pilotModal.classList.add('is-open');
-      pilotModal.querySelector('input[name="name"]')?.focus();
+      modal.classList.add('is-open');
+      modal.querySelector('input[name="name"]')?.focus();
     });
   };
 
-  const closePilotModal = () => {
-    pilotModal.classList.remove('is-open');
+  const closeModal = () => {
+    modal.classList.remove('is-open');
     document.body.classList.remove('modal-open');
     closeTimer = window.setTimeout(() => {
-      pilotModal.hidden = true;
+      modal.hidden = true;
       activeTrigger?.focus();
     }, 260);
   };
 
-  pilotModalOpeners.forEach((opener) => {
-    opener.addEventListener('click', () => openPilotModal(opener));
+  openers.forEach((opener) => {
+    opener.addEventListener('click', () => openModal(opener));
   });
 
-  pilotModal.querySelectorAll('[data-pilot-modal-close]').forEach((closer) => {
-    closer.addEventListener('click', closePilotModal);
+  modal.querySelectorAll(closeSelector).forEach((closer) => {
+    closer.addEventListener('click', closeModal);
   });
 
   document.addEventListener('keydown', (event) => {
-    if (pilotModal.hidden) return;
+    if (modal.hidden) return;
 
     if (event.key === 'Escape') {
-      closePilotModal();
+      closeModal();
       return;
     }
 
     if (event.key !== 'Tab') return;
-    const focusable = [...pilotModal.querySelectorAll(focusableSelector)];
+    const focusable = [...modal.querySelectorAll(focusableSelector)];
     if (!focusable.length) return;
     const first = focusable[0];
     const last = focusable[focusable.length - 1];
@@ -105,35 +107,53 @@ if (pilotModal && pilotModalOpeners.length && pilotModalForm) {
   const pageParams = new URLSearchParams(window.location.search);
   const trackingFields = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'yclid'];
 
-  pilotModalForm.elements.source_url.value = window.location.href;
-  pilotModalForm.elements.referrer.value = document.referrer;
+  form.elements.source_url.value = window.location.href;
+  form.elements.referrer.value = document.referrer;
   trackingFields.forEach((field) => {
-    pilotModalForm.elements[field].value = pageParams.get(field) || '';
+    form.elements[field].value = pageParams.get(field) || '';
   });
 
   const formResult = pageParams.get('form');
-  if (formResult === 'error' || formResult === 'send-error') {
-    pilotModalStatus.textContent = formResult === 'error'
-      ? 'Проверьте заполнение полей и отправьте заявку ещё раз.'
-      : 'Не удалось отправить заявку. Позвоните нам по номеру в шапке сайта или попробуйте ещё раз.';
-    pilotModalStatus.classList.add('is-error');
-    openPilotModal(pilotModalOpeners[0]);
+  if (formResult && Object.prototype.hasOwnProperty.call(errorMessages, formResult)) {
+    status.textContent = errorMessages[formResult];
+    status.classList.add('is-error');
+    openModal(openers[0]);
 
     pageParams.delete('form');
     const cleanQuery = pageParams.toString();
     window.history.replaceState({}, '', `${window.location.pathname}${cleanQuery ? `?${cleanQuery}` : ''}${window.location.hash}`);
   }
 
-  pilotModalForm.addEventListener('submit', () => {
-    const submitButton = pilotModalForm.querySelector('button[type="submit"]');
+  form.addEventListener('submit', () => {
+    const submitButton = form.querySelector('button[type="submit"]');
     if (submitButton) {
       submitButton.disabled = true;
       submitButton.textContent = 'Отправляем заявку…';
     }
-    pilotModalStatus.textContent = 'Передаём заявку. Пожалуйста, не закрывайте страницу.';
-    pilotModalStatus.classList.remove('is-error');
+    status.textContent = 'Передаём заявку. Пожалуйста, не закрывайте страницу.';
+    status.classList.remove('is-error');
   });
-}
+};
+
+setupLeadModal({
+  modalSelector: '#pilot-modal',
+  openerSelector: '.js-pilot-modal-open',
+  closeSelector: '[data-pilot-modal-close]',
+  errorMessages: {
+    error: 'Проверьте заполнение полей и отправьте заявку ещё раз.',
+    'send-error': 'Не удалось отправить заявку. Позвоните нам по номеру в шапке сайта или попробуйте ещё раз.'
+  }
+});
+
+setupLeadModal({
+  modalSelector: '#scheme-modal',
+  openerSelector: '.js-scheme-modal-open',
+  closeSelector: '[data-scheme-modal-close]',
+  errorMessages: {
+    'scheme-error': 'Проверьте заполнение полей и отправьте запрос ещё раз.',
+    'scheme-send-error': 'Не удалось отправить запрос. Позвоните нам по номеру в шапке сайта или попробуйте ещё раз.'
+  }
+});
 
 const siteHeader = document.querySelector('.site-header');
 const menuToggle = document.querySelector('.menu-toggle');

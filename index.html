@@ -15,7 +15,7 @@
   <meta property="og:image" content="https://uwinbeverage.ru/assets/silver-system.jpg">
   <link rel="canonical" href="https://uwinbeverage.ru/">
   <link rel="icon" href="assets/uwin-group-logo-white.png" type="image/png">
-  <link rel="stylesheet" href="styles.css?v=20260723-03">
+  <link rel="stylesheet" href="styles.css?v=20260723-04">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -408,7 +408,7 @@
         <div class="implementation-band reveal">
           <div><span>ОБОРУДОВАНИЕ</span><strong>Стандартный дозирующий насос</strong></div>
           <div><span>ИНТЕГРАЦИЯ</span><strong>В действующий контур производства</strong></div>
-          <a class="button button--light" href="https://youtube.com/shorts/MCHDtW9ggSU" target="_blank" rel="noopener">Посмотреть видео <span>▶</span></a>
+          <button class="button button--light js-scheme-modal-open" type="button" aria-haspopup="dialog" aria-controls="scheme-modal">Подобрать схему <span>→</span></button>
         </div>
       </div>
     </section>
@@ -655,6 +655,56 @@
     </section>
   </div>
 
+  <div class="pilot-modal" id="scheme-modal" hidden>
+    <div class="pilot-modal__backdrop" data-scheme-modal-close></div>
+    <section class="pilot-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="scheme-modal-title" aria-describedby="scheme-modal-description">
+      <button class="pilot-modal__close" type="button" data-scheme-modal-close aria-label="Закрыть форму">×</button>
+
+      <div class="pilot-modal__heading">
+        <p>ИНЖЕНЕРНАЯ СХЕМА · ДЛЯ ВАШЕЙ ЛИНИИ</p>
+        <h2 id="scheme-modal-title">Подберём схему для вашей линии</h2>
+        <span id="scheme-modal-description">Уточним производительность, формат тары и действующую водоподготовку, затем предложим точку ввода и параметры подачи.</span>
+      </div>
+
+      <form class="pilot-modal__form" action="api/scheme-request.php" method="post">
+        <label>
+          <span>Имя</span>
+          <input type="text" name="name" autocomplete="name" maxlength="80" placeholder="Как к вам обращаться" required>
+        </label>
+        <label>
+          <span>Телефон</span>
+          <input type="tel" name="phone" autocomplete="tel" inputmode="tel" maxlength="40" placeholder="+7 ___ ___-__-__" required>
+        </label>
+        <label>
+          <span>Рабочая почта</span>
+          <input type="email" name="email" autocomplete="email" maxlength="120" placeholder="name@company.ru" required>
+        </label>
+        <label class="pilot-modal__wide">
+          <span>Производительность линии и форматы тары <i>необязательно</i></span>
+          <input type="text" name="line_details" maxlength="240" placeholder="Например: 6 000 л/ч, ПЭТ 1,5 и 5 л">
+        </label>
+
+        <label class="pilot-modal__consent">
+          <input type="checkbox" name="consent" value="yes" required>
+          <span>Даю согласие на обработку персональных данных в соответствии с <a href="https://disk.yandex.ru/i/6JsinyTwX-1fiA" target="_blank" rel="noopener">политикой конфиденциальности</a></span>
+        </label>
+
+        <input class="pilot-modal__trap" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <input type="hidden" name="source_url">
+        <input type="hidden" name="referrer">
+        <input type="hidden" name="utm_source">
+        <input type="hidden" name="utm_medium">
+        <input type="hidden" name="utm_campaign">
+        <input type="hidden" name="utm_content">
+        <input type="hidden" name="utm_term">
+        <input type="hidden" name="yclid">
+
+        <button class="button button--primary" type="submit">Передать параметры инженеру</button>
+        <p class="pilot-modal__note" id="scheme-modal-status" aria-live="polite">Инженер свяжется с вами и уточнит детали внедрения.</p>
+      </form>
+    </section>
+  </div>
+
   <footer class="site-footer" id="company">
     <div class="wrap">
       <div class="footer-main">
@@ -712,6 +762,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=20260723-07"></script>
+  <script src="script.js?v=20260723-08"></script>
 </body>
 </html>
