@@ -15,7 +15,7 @@
   <meta property="og:image" content="https://uwinbeverage.ru/assets/silver-system.jpg">
   <link rel="canonical" href="https://uwinbeverage.ru/">
   <link rel="icon" href="assets/uwin-group-logo-white.png" type="image/png">
-  <link rel="stylesheet" href="styles.css?v=20260723-02">
+  <link rel="stylesheet" href="styles.css?v=20260723-03">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -112,7 +112,7 @@
           <p class="hero__lead">SILVER Ag<sup>+</sup> исключает риск запаха, помутнения и позеленения — на складе, в логистике, на полке и у клиента.</p>
 
           <div class="hero__actions">
-            <a class="button button--primary" href="mailto:service@uwingroup.ru?subject=%D0%97%D0%B0%D1%8F%D0%B2%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%B1%D0%B5%D1%81%D0%BF%D0%BB%D0%B0%D1%82%D0%BD%D1%8B%D0%B9%20%D0%BF%D0%B8%D0%BB%D0%BE%D1%82%20SILVER%20Ag%2B%20%E2%80%94%203%20%D1%82%D0%BE%D0%BD%D0%BD%D1%8B&amp;body=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9D%D0%B0%D1%81%20%D0%B7%D0%B0%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D0%BE%D0%B2%D0%B0%D0%BB%20%D0%B1%D0%B5%D1%81%D0%BF%D0%BB%D0%B0%D1%82%D0%BD%D1%8B%D0%B9%20%D0%BF%D0%B8%D0%BB%D0%BE%D1%82%20SILVER%20Ag%2B%20%D0%BD%D0%B0%203%20%D1%82%D0%BE%D0%BD%D0%BD%D1%8B%20%D0%B2%D0%BE%D0%B4%D1%8B.%20%D0%A5%D0%BE%D1%82%D0%B8%D0%BC%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%BF%D1%80%D0%BE%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%82%D0%B5%D1%81%D1%82%D0%B0%20%D0%BD%D0%B0%20%D0%BD%D0%B0%D1%88%D0%B5%D0%BC%20%D0%BF%D1%80%D0%BE%D0%B8%D0%B7%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%B5.%20%D0%9F%D0%BE%D0%B6%D0%B0%D0%BB%D1%83%D0%B9%D1%81%D1%82%D0%B0%2C%20%D1%81%D0%B2%D1%8F%D0%B6%D0%B8%D1%82%D0%B5%D1%81%D1%8C%20%D1%81%20%D0%BD%D0%B0%D0%BC%D0%B8%2C%20%D1%87%D1%82%D0%BE%D0%B1%D1%8B%20%D1%83%D1%82%D0%BE%D1%87%D0%BD%D0%B8%D1%82%D1%8C%20%D0%B8%D1%81%D1%85%D0%BE%D0%B4%D0%BD%D1%8B%D0%B5%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5%20%D0%B8%20%D0%B4%D0%B0%D0%BB%D1%8C%D0%BD%D0%B5%D0%B9%D1%88%D0%B8%D0%B5%20%D1%88%D0%B0%D0%B3%D0%B8.">Получить бесплатный пилот на 3 тонны</a>
+            <button class="button button--primary js-pilot-modal-open" type="button" aria-haspopup="dialog" aria-controls="pilot-modal">Получить бесплатный пилот на 3 тонны</button>
             <a class="button button--ghost" href="#after-bottling">Посмотреть принцип работы <span>↓</span></a>
           </div>
 
@@ -439,7 +439,7 @@
           </div>
           <div class="proof-document__actions">
             <a class="button button--primary" href="mailto:service@uwingroup.ru?subject=Запрос%20декларации%20SILVER%20Ag%2B">Запросить декларацию</a>
-            <a class="proof-link" href="references/ГК_Ювин_SILVER_Ag_презентация_3.pdf" target="_blank">Открыть презентацию <span>↗</span></a>
+            <a class="proof-link" href="https://clck.ru/3Uuiu8" target="_blank" rel="noopener">Открыть презентацию <span>↗</span></a>
           </div>
         </div>
 
@@ -609,6 +609,52 @@
     </section>
   </main>
 
+  <div class="pilot-modal" id="pilot-modal" hidden>
+    <div class="pilot-modal__backdrop" data-pilot-modal-close></div>
+    <section class="pilot-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="pilot-modal-title" aria-describedby="pilot-modal-description">
+      <button class="pilot-modal__close" type="button" data-pilot-modal-close aria-label="Закрыть форму">×</button>
+
+      <div class="pilot-modal__heading">
+        <p>БЕСПЛАТНЫЙ ПИЛОТ · 0,5 Л → 3 ТОННЫ</p>
+        <h2 id="pilot-modal-title">Получить бесплатный пилот</h2>
+        <span id="pilot-modal-description">Оставьте контакты — уточним параметры продукта и линии и согласуем тест.</span>
+      </div>
+
+      <form class="pilot-modal__form" action="api/pilot-request.php" method="post">
+        <label>
+          <span>Имя</span>
+          <input type="text" name="name" autocomplete="name" maxlength="80" placeholder="Как к вам обращаться" required>
+        </label>
+        <label>
+          <span>Телефон</span>
+          <input type="tel" name="phone" autocomplete="tel" inputmode="tel" maxlength="40" placeholder="+7 ___ ___-__-__" required>
+        </label>
+        <label>
+          <span>Рабочая почта</span>
+          <input type="email" name="email" autocomplete="email" maxlength="120" placeholder="name@company.ru" required>
+        </label>
+
+        <label class="pilot-modal__consent">
+          <input type="checkbox" name="consent" value="yes" required>
+          <span>Даю согласие на обработку персональных данных в соответствии с <a href="https://disk.yandex.ru/i/6JsinyTwX-1fiA" target="_blank" rel="noopener">политикой конфиденциальности</a></span>
+        </label>
+
+        <input class="pilot-modal__trap" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <input type="hidden" name="source_url">
+        <input type="hidden" name="referrer">
+        <input type="hidden" name="utm_source">
+        <input type="hidden" name="utm_medium">
+        <input type="hidden" name="utm_campaign">
+        <input type="hidden" name="utm_content">
+        <input type="hidden" name="utm_term">
+        <input type="hidden" name="yclid">
+
+        <button class="button button--primary" type="submit">Отправить заявку на пилот</button>
+        <p class="pilot-modal__note" id="pilot-modal-status" aria-live="polite">Свяжемся с вами, чтобы уточнить параметры продукта и линии.</p>
+      </form>
+    </section>
+  </div>
+
   <footer class="site-footer" id="company">
     <div class="wrap">
       <div class="footer-main">
@@ -637,7 +683,7 @@
         <nav class="footer-column" aria-label="Материалы и сервис">
           <strong>МАТЕРИАЛЫ И СЕРВИС</strong>
           <a href="#proof">Доказательная база</a>
-          <a href="references/ГК_Ювин_SILVER_Ag_презентация_3.pdf" target="_blank">Презентация SILVER Ag+</a>
+          <a href="https://clck.ru/3Uuiu8" target="_blank" rel="noopener">Презентация SILVER Ag+</a>
           <a href="#service">Инженерный сервис</a>
           <a href="#faq">Вопросы и ответы</a>
           <a href="#contact">Обсудить задачу</a>
@@ -666,6 +712,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=20260722-6"></script>
+  <script src="script.js?v=20260723-07"></script>
 </body>
 </html>
