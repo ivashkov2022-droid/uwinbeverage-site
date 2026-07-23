@@ -799,7 +799,7 @@ body.modal-open { overflow: hidden; }
   border-radius: 50%;
   box-shadow: 0 0 0 54px rgba(126, 232, 245, .025), 0 0 0 108px rgba(126, 232, 245, .018);
 }
-.presentation-hero > * { position: relative; z-index: 1; }
+.presentation-hero > * { min-width: 0; position: relative; z-index: 1; }
 .presentation-hero__kicker {
   margin: 0 0 20px;
   color: var(--cyan-300);
@@ -1143,15 +1143,17 @@ body.modal-open { overflow: hidden; }
   .presentation-header__back { font-size: 11px; }
   .presentation-main { width: min(100% - 32px, 980px); padding: 38px 0 64px; }
   .presentation-hero {
-    padding: 34px 26px;
+    padding: 30px 20px;
     grid-template-columns: 1fr;
     align-items: start;
     gap: 28px;
     border-radius: 20px;
   }
-  .presentation-hero h1 { font-size: clamp(52px, 13vw, 74px); }
+  .presentation-hero__kicker { font-size: 8px; letter-spacing: .13em; line-height: 1.4; }
+  .presentation-hero h1 { font-size: clamp(38px, 11.5vw, 50px); line-height: .92; }
   .presentation-hero__lead { font-size: 16px; }
   .presentation-hero__side { align-content: start; }
+  .presentation-actions { width: 100%; min-width: 0; }
   .presentation-deck { margin-top: 24px; gap: 20px; }
   .presentation-slide { padding: 8px; border-radius: 16px; }
   .presentation-slide img { border-radius: 10px; }
