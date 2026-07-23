@@ -811,7 +811,7 @@ body.modal-open { overflow: hidden; }
 .presentation-hero h1 {
   margin: 0;
   font-size: clamp(58px, 7vw, 96px);
-  line-height: .88;
+  line-height: .98;
   letter-spacing: -.06em;
 }
 .presentation-hero h1 span { color: var(--cyan-500); }
@@ -1150,7 +1150,7 @@ body.modal-open { overflow: hidden; }
     border-radius: 20px;
   }
   .presentation-hero__kicker { font-size: 8px; letter-spacing: .13em; line-height: 1.4; }
-  .presentation-hero h1 { font-size: clamp(38px, 11.5vw, 50px); line-height: .92; }
+  .presentation-hero h1 { font-size: clamp(38px, 11.5vw, 50px); line-height: .98; }
   .presentation-hero__lead { font-size: 16px; }
   .presentation-hero__side { align-content: start; }
   .presentation-actions { width: 100%; min-width: 0; }
