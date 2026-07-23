@@ -966,12 +966,15 @@ body.modal-open { overflow: hidden; }
   .footer-brand { grid-column: auto; }
   .footer-brand > p { max-width: 300px; }
   .footer-bottom {
-    grid-template-columns: 1fr;
-    gap: 12px;
+    grid-template-columns: 1fr auto;
+    column-gap: 18px;
+    row-gap: 12px;
     align-items: start;
-    padding: 22px 0 calc(48px + env(safe-area-inset-bottom));
+    padding: 22px 0 calc(36px + env(safe-area-inset-bottom));
   }
+  .footer-bottom > span { grid-column: 1 / -1; }
   .footer-bottom a { justify-self: start; }
+  .footer-bottom a:last-child { justify-self: end; }
   .service-card { min-height: 300px; }
   .service-bridge { padding: 24px 20px; }
   .service-bridge__actions { flex-direction: column; }
