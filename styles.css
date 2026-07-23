@@ -743,6 +743,170 @@ body.modal-open { overflow: hidden; }
 }
 .privacy-footer a { color: var(--cyan-300); }
 
+.presentation-page {
+  min-height: 100dvh;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 82% 4%, rgba(32, 199, 232, .1), transparent 22%),
+    linear-gradient(180deg, #eef5f9 0, #f7fafc 420px, #f3f7fa 100%);
+}
+.presentation-header {
+  min-height: 92px;
+  padding: 0 max(48px, calc((100vw - 1440px) / 2));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  color: var(--white);
+  border-bottom: 1px solid rgba(126, 232, 245, .14);
+  background: linear-gradient(135deg, #020d1e, #061b3d 68%, #0a2d63);
+}
+.presentation-header__back {
+  color: var(--cyan-300);
+  font-size: 12px;
+  font-weight: 750;
+  letter-spacing: .02em;
+}
+.presentation-main {
+  width: min(100% - 48px, 1180px);
+  margin: 0 auto;
+  padding: 64px 0 100px;
+}
+.presentation-hero {
+  padding: clamp(34px, 5vw, 68px);
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(280px, .8fr);
+  align-items: end;
+  gap: clamp(36px, 6vw, 90px);
+  position: relative;
+  overflow: hidden;
+  color: var(--white);
+  border: 1px solid rgba(126, 232, 245, .2);
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at 88% 18%, rgba(32, 199, 232, .22), transparent 26%),
+    linear-gradient(145deg, #020d1e, #061b3d 58%, #0a2d63);
+  box-shadow: 0 28px 90px rgba(35, 68, 101, .16);
+}
+.presentation-hero::after {
+  content: "";
+  width: 420px;
+  height: 420px;
+  position: absolute;
+  right: -230px;
+  top: -250px;
+  border: 1px solid rgba(126, 232, 245, .14);
+  border-radius: 50%;
+  box-shadow: 0 0 0 54px rgba(126, 232, 245, .025), 0 0 0 108px rgba(126, 232, 245, .018);
+}
+.presentation-hero > * { position: relative; z-index: 1; }
+.presentation-hero__kicker {
+  margin: 0 0 20px;
+  color: var(--cyan-300);
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+.presentation-hero h1 {
+  margin: 0;
+  font-size: clamp(58px, 7vw, 96px);
+  line-height: .88;
+  letter-spacing: -.06em;
+}
+.presentation-hero h1 span { color: var(--cyan-500); }
+.presentation-hero__lead {
+  max-width: 720px;
+  margin: 28px 0 0;
+  color: #c6d5e4;
+  font-size: clamp(16px, 1.7vw, 21px);
+  line-height: 1.6;
+}
+.presentation-hero__side { display: grid; gap: 18px; align-content: end; }
+.presentation-hero__side > p {
+  margin: 0;
+  color: #8fa8c0;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .04em;
+}
+.presentation-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.presentation-deck {
+  margin-top: 34px;
+  display: grid;
+  gap: 28px;
+}
+.presentation-slide {
+  margin: 0;
+  padding: 12px;
+  border: 1px solid #dce7ee;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, .96);
+  box-shadow: 0 18px 58px rgba(35, 68, 101, .09);
+}
+.presentation-slide img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  display: block;
+  border-radius: 14px;
+  background: #eaf1f6;
+}
+.presentation-slide figcaption {
+  min-height: 46px;
+  padding: 12px 8px 2px;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  color: #5a7087;
+  font-size: 13px;
+  font-weight: 700;
+}
+.presentation-slide figcaption span {
+  color: #0794b1;
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: .12em;
+}
+.presentation-cta {
+  margin-top: 34px;
+  padding: clamp(28px, 4vw, 48px);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 36px;
+  color: var(--white);
+  border-radius: 24px;
+  background: linear-gradient(135deg, #031126, #082a5a);
+}
+.presentation-cta p {
+  margin: 0 0 10px;
+  color: var(--cyan-300);
+  font-size: 9px;
+  font-weight: 850;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+.presentation-cta h2 {
+  max-width: 720px;
+  margin: 0;
+  font-size: clamp(25px, 3vw, 40px);
+  line-height: 1.06;
+  letter-spacing: -.035em;
+}
+.presentation-footer {
+  min-height: 76px;
+  padding: 18px max(48px, calc((100vw - 1440px) / 2));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  color: #7189a1;
+  background: #031126;
+  font-size: 11px;
+}
+.presentation-footer a { color: var(--cyan-300); }
+
 .reveal { opacity: 0; transform: translateY(18px); transition: opacity .75s var(--ease), transform .75s var(--ease); }
 .reveal.is-visible { opacity: 1; transform: none; }
 @keyframes signal { 0%,100% { opacity: .45; transform: scale(.82); } 50% { opacity: 1; transform: scale(1.16); } }
@@ -986,6 +1150,47 @@ body.modal-open { overflow: hidden; }
     grid-row: 2;
   }
   .privacy-footer > a[href="./"] {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+  }
+  .presentation-header { min-height: 76px; padding: 0 16px; }
+  .presentation-header .brand__company { display: inline; }
+  .presentation-header__back { font-size: 11px; }
+  .presentation-main { width: min(100% - 32px, 980px); padding: 38px 0 64px; }
+  .presentation-hero {
+    padding: 34px 26px;
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: 28px;
+    border-radius: 20px;
+  }
+  .presentation-hero h1 { font-size: clamp(52px, 13vw, 74px); }
+  .presentation-hero__lead { font-size: 16px; }
+  .presentation-hero__side { align-content: start; }
+  .presentation-deck { margin-top: 24px; gap: 20px; }
+  .presentation-slide { padding: 8px; border-radius: 16px; }
+  .presentation-slide img { border-radius: 10px; }
+  .presentation-cta { grid-template-columns: 1fr; gap: 24px; border-radius: 20px; }
+  .presentation-footer {
+    min-height: 84px;
+    padding: 18px 16px calc(82px + env(safe-area-inset-bottom));
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: start;
+    justify-content: normal;
+    column-gap: 18px;
+    row-gap: 8px;
+  }
+  .presentation-footer > span {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .presentation-footer > a[download] {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .presentation-footer > a[href="./"] {
     grid-column: 2;
     grid-row: 1;
     justify-self: end;
