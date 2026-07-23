@@ -60,8 +60,8 @@ sup { font-size: .54em; vertical-align: super; }
 .site-nav { display: flex; align-items: center; justify-content: center; gap: clamp(22px, 3vw, 48px); }
 .site-nav a { color: #c4d2e1; font-size: 13px; letter-spacing: .04em; transition: color .2s ease; }
 .site-nav a:hover, .site-nav a:focus-visible { color: var(--cyan-300); }
-.site-nav .nav-presentation { display: inline-flex; align-items: center; gap: 6px; }
-.nav-presentation span { color: var(--cyan-300); font-size: 8px; font-weight: 850; letter-spacing: .1em; }
+.nav-presentation-row { display: flex; align-items: baseline; gap: 6px; }
+.site-nav .nav-pdf-link { color: var(--cyan-300); font-size: 8px; font-weight: 850; letter-spacing: .1em; white-space: nowrap; }
 .site-nav__contacts { display: none; }
 .header-contact { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
 .header-contact span { color: var(--cyan-300); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; }
@@ -641,6 +641,9 @@ body.modal-open { overflow: hidden; }
   .menu-toggle { display: grid; }
   .site-nav { position: fixed; inset: 92px 0 auto; max-height: calc(100dvh - 92px); padding: 20px 24px 28px; display: grid; align-content: start; gap: 0; overflow-y: auto; border-top: 1px solid rgba(126,232,245,.18); background: linear-gradient(160deg, rgba(3,18,42,.99), rgba(8,49,96,.99)); box-shadow: 0 24px 60px rgba(0,12,35,.32); opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(-12px); transition: opacity .22s ease, visibility .22s ease, transform .22s var(--ease); }
   .site-nav > a { padding: 17px 0; border-bottom: 1px solid rgba(255,255,255,.1); color: var(--white); font-size: 16px; font-weight: 700; }
+  .site-nav > .nav-presentation-row { padding: 17px 0; border-bottom: 1px solid rgba(255,255,255,.1); }
+  .site-nav .nav-presentation-row a { color: var(--white); font-size: 16px; font-weight: 700; }
+  .site-nav .nav-presentation-row .nav-pdf-link { color: var(--cyan-300); font-size: 9px; font-weight: 850; }
   .site-nav__contacts { margin-top: 22px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
   .site-nav__contacts a { min-height: 76px; padding: 15px 16px; display: grid; align-content: center; gap: 5px; border: 1px solid rgba(126,232,245,.2); border-radius: 12px; background: rgba(255,255,255,.045); }
   .site-nav__contacts span { color: var(--cyan-300); font-size: 9px; letter-spacing: .13em; text-transform: uppercase; }
