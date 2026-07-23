@@ -553,12 +553,12 @@ body.modal-open { overflow: hidden; }
 .footer-phones { margin-top: 6px; display: grid; gap: 6px; }
 .footer-phones a { color: var(--white); font-size: clamp(18px, 1.7vw, 25px); font-weight: 750; letter-spacing: -.025em; }
 .footer-mail { color: var(--cyan-300); font-size: 14px; font-weight: 700; }
-.footer-contacts .footer-policy-link { margin-top: 4px; color: #b8c9d9; font-size: 12px; font-weight: 700; }
-.footer-contacts .footer-policy-link:hover { color: var(--white); }
-.footer-bottom { min-height: 76px; position: relative; z-index: 1; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 30px; border-top: 1px solid rgba(255,255,255,.1); color: #667e95; font-size: 10px; }
+.footer-bottom { min-height: 76px; position: relative; z-index: 1; display: grid; grid-template-columns: auto 1fr auto auto; align-items: center; gap: 30px; border-top: 1px solid rgba(255,255,255,.1); color: #667e95; font-size: 10px; }
 .footer-bottom strong { justify-self: center; color: #a8bacb; font-size: 10px; letter-spacing: .06em; }
 .footer-bottom a { color: #88a1b8; }
-.footer-bottom a:last-child { color: var(--cyan-300); }
+.footer-bottom .footer-policy-link { color: #b8c9d9; font-size: 12px; font-weight: 700; }
+.footer-bottom .footer-policy-link:hover { color: var(--white); }
+.footer-bottom a[href="#top"] { color: var(--cyan-300); }
 
 .thank-you-page {
   min-height: 100dvh;
@@ -962,14 +962,12 @@ body.modal-open { overflow: hidden; }
   .privacy-details { padding: 19px; }
   .privacy-footer { min-height: 84px; padding: 18px 16px; flex-direction: column; align-items: flex-start; justify-content: center; gap: 8px; }
   .site-footer {
-    padding-top: 46px;
-    padding-bottom: calc(96px + env(safe-area-inset-bottom));
+    padding-top: 58px;
+    padding-bottom: calc(82px + env(safe-area-inset-bottom));
   }
-  .footer-main { grid-template-columns: 1fr; gap: 34px; padding-bottom: 32px; }
+  .footer-main { grid-template-columns: 1fr; gap: 42px; padding-bottom: 46px; }
   .footer-brand { grid-column: auto; }
   .footer-brand > p { max-width: 300px; }
-  .footer-product-nav,
-  .footer-mobile-secondary { display: none; }
   .footer-bottom {
     grid-template-columns: 1fr auto;
     column-gap: 18px;
@@ -982,7 +980,11 @@ body.modal-open { overflow: hidden; }
     grid-row: 1;
   }
   .footer-bottom a { justify-self: start; }
-  .footer-bottom a:last-child {
+  .footer-bottom .footer-policy-link {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+  .footer-bottom a[href="#top"] {
     grid-column: 2;
     grid-row: 1;
     justify-self: end;
