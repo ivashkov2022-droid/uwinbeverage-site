@@ -974,16 +974,16 @@ body.modal-open { overflow: hidden; }
   }
   .footer-bottom > span {
     grid-column: 1;
-    grid-row: 1;
+    grid-row: 2;
   }
   .footer-bottom a { justify-self: start; }
   .footer-bottom .footer-policy-link {
     grid-column: 1 / -1;
-    grid-row: 2;
+    grid-row: 1;
   }
   .footer-bottom a:last-child {
     grid-column: 2;
-    grid-row: 1;
+    grid-row: 2;
     justify-self: end;
   }
   .service-card { min-height: 300px; }
