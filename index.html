@@ -15,7 +15,7 @@
   <meta property="og:image" content="https://uwinbeverage.ru/assets/silver-system.jpg">
   <link rel="canonical" href="https://uwinbeverage.ru/">
   <link rel="icon" href="assets/uwin-group-logo-white.png" type="image/png">
-  <link rel="stylesheet" href="styles.css?v=20260723-11">
+  <link rel="stylesheet" href="styles.css?v=20260723-12">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -576,7 +576,7 @@
             <p>Опишите текущую задачу — подберём формат работ и необходимые компетенции.</p>
           </div>
           <div class="service-bridge__actions">
-            <a class="button button--primary" href="mailto:service@uwingroup.ru?subject=Инженерный%20сервис%20линии%20розлива">Обсудить сервисную задачу</a>
+            <button class="button button--primary js-service-modal-open" type="button" aria-haspopup="dialog" aria-controls="service-modal">Обсудить сервисную задачу</button>
             <a class="button button--ghost" href="#technology">Вернуться к продукту <span>↑</span></a>
           </div>
         </div>
@@ -755,6 +755,56 @@
     </section>
   </div>
 
+  <div class="pilot-modal" id="service-modal" hidden>
+    <div class="pilot-modal__backdrop" data-service-modal-close></div>
+    <section class="pilot-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="service-modal-title" aria-describedby="service-modal-description">
+      <button class="pilot-modal__close" type="button" data-service-modal-close aria-label="Закрыть форму">×</button>
+
+      <div class="pilot-modal__heading">
+        <p>СЕРВИСНАЯ ЗАДАЧА · ГК «ЮВИН»</p>
+        <h2 id="service-modal-title">Обсудить сервисную задачу</h2>
+        <span id="service-modal-description">Коротко опишите задачу по линии — подключим нужного специалиста и предложим подходящий формат работ.</span>
+      </div>
+
+      <form class="pilot-modal__form" action="api/service-request.php" method="post">
+        <label>
+          <span>Имя</span>
+          <input type="text" name="name" autocomplete="name" maxlength="80" placeholder="Как к вам обращаться" required>
+        </label>
+        <label>
+          <span>Телефон</span>
+          <input type="tel" name="phone" autocomplete="tel" inputmode="tel" maxlength="40" placeholder="+7 ___ ___-__-__" required>
+        </label>
+        <label>
+          <span>Рабочая почта</span>
+          <input type="email" name="email" autocomplete="email" maxlength="120" placeholder="name@company.ru" required>
+        </label>
+        <label class="pilot-modal__wide">
+          <span>Что требуется сделать <i>необязательно</i></span>
+          <textarea name="service_task" rows="3" maxlength="600" placeholder="Например: настроить «Честный знак», провести диагностику или пусконаладку"></textarea>
+        </label>
+
+        <label class="pilot-modal__consent">
+          <input type="checkbox" name="consent" value="yes" required>
+          <span>Даю согласие на обработку персональных данных в соответствии с <a href="https://disk.yandex.ru/i/6JsinyTwX-1fiA" target="_blank" rel="noopener">политикой конфиденциальности</a></span>
+        </label>
+
+        <input class="pilot-modal__trap" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <input type="hidden" name="source_url">
+        <input type="hidden" name="referrer">
+        <input type="hidden" name="utm_source">
+        <input type="hidden" name="utm_medium">
+        <input type="hidden" name="utm_campaign">
+        <input type="hidden" name="utm_content">
+        <input type="hidden" name="utm_term">
+        <input type="hidden" name="yclid">
+
+        <button class="button button--primary" type="submit">Отправить задачу сервисной команде</button>
+        <p class="pilot-modal__note" id="service-modal-status" aria-live="polite">Специалист сервисной команды свяжется с вами и уточнит детали.</p>
+      </form>
+    </section>
+  </div>
+
   <footer class="site-footer" id="company">
     <div class="wrap">
       <div class="footer-main">
@@ -815,6 +865,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=20260723-10"></script>
+  <script src="script.js?v=20260723-11"></script>
 </body>
 </html>

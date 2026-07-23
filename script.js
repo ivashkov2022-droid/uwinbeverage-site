@@ -51,7 +51,7 @@ const setupLeadModal = ({ modalSelector, openerSelector, closeSelector, errorMes
   let activeTrigger = null;
   let closeTimer = null;
 
-  const focusableSelector = 'button:not([disabled]), a[href], input:not([disabled]):not([type="hidden"]):not([tabindex="-1"])';
+  const focusableSelector = 'button:not([disabled]), a[href], input:not([disabled]):not([type="hidden"]):not([tabindex="-1"]), textarea:not([disabled])';
 
   const openModal = (trigger) => {
     if (closeTimer) window.clearTimeout(closeTimer);
@@ -165,6 +165,16 @@ setupLeadModal({
   errorMessages: {
     'documents-error': 'Проверьте заполнение полей и отправьте запрос ещё раз.',
     'documents-send-error': 'Не удалось отправить запрос. Позвоните нам по номеру в шапке сайта или попробуйте ещё раз.'
+  }
+});
+
+setupLeadModal({
+  modalSelector: '#service-modal',
+  openerSelector: '.js-service-modal-open',
+  closeSelector: '[data-service-modal-close]',
+  errorMessages: {
+    'service-error': 'Проверьте заполнение полей и отправьте задачу ещё раз.',
+    'service-send-error': 'Не удалось отправить задачу. Позвоните нам по номеру в шапке сайта или попробуйте ещё раз.'
   }
 });
 
