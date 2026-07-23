@@ -852,22 +852,6 @@ body.modal-open { overflow: hidden; }
   border-radius: 14px;
   background: #eaf1f6;
 }
-.presentation-slide figcaption {
-  min-height: 46px;
-  padding: 12px 8px 2px;
-  display: flex;
-  align-items: baseline;
-  gap: 12px;
-  color: #5a7087;
-  font-size: 13px;
-  font-weight: 700;
-}
-.presentation-slide figcaption span {
-  color: #0794b1;
-  font-size: 10px;
-  font-weight: 850;
-  letter-spacing: .12em;
-}
 .presentation-cta {
   margin-top: 34px;
   padding: clamp(28px, 4vw, 48px);
