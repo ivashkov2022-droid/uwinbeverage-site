@@ -972,9 +972,20 @@ body.modal-open { overflow: hidden; }
     align-items: start;
     padding: 22px 0 calc(36px + env(safe-area-inset-bottom));
   }
-  .footer-bottom > span { grid-column: 1 / -1; }
+  .footer-bottom > span {
+    grid-column: 1;
+    grid-row: 1;
+  }
   .footer-bottom a { justify-self: start; }
-  .footer-bottom a:last-child { justify-self: end; }
+  .footer-bottom .footer-policy-link {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+  .footer-bottom a:last-child {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+  }
   .service-card { min-height: 300px; }
   .service-bridge { padding: 24px 20px; }
   .service-bridge__actions { flex-direction: column; }
