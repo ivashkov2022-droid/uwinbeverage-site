@@ -961,10 +961,12 @@ body.modal-open { overflow: hidden; }
   .privacy-content p { font-size: 15px; line-height: 1.65; }
   .privacy-details { padding: 19px; }
   .privacy-footer { min-height: 84px; padding: 18px 16px; flex-direction: column; align-items: flex-start; justify-content: center; gap: 8px; }
-  .site-footer { padding-top: 58px; }
-  .footer-main { grid-template-columns: 1fr; gap: 42px; padding-bottom: 46px; }
+  .site-footer { padding-top: 46px; }
+  .footer-main { grid-template-columns: 1fr; gap: 34px; padding-bottom: 32px; }
   .footer-brand { grid-column: auto; }
   .footer-brand > p { max-width: 300px; }
+  .footer-product-nav,
+  .footer-mobile-secondary { display: none; }
   .footer-bottom {
     grid-template-columns: 1fr auto;
     column-gap: 18px;
