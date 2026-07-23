@@ -970,10 +970,25 @@ body.modal-open { overflow: hidden; }
   .privacy-footer {
     min-height: 84px;
     padding: 18px 16px calc(82px + env(safe-area-inset-bottom));
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    gap: 8px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: start;
+    justify-content: normal;
+    column-gap: 18px;
+    row-gap: 8px;
+  }
+  .privacy-footer > span {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .privacy-footer > a[href^="mailto:"] {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .privacy-footer > a[href="./"] {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
   }
   .site-footer {
     padding-top: 58px;
