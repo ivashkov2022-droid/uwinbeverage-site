@@ -15,7 +15,7 @@
   <meta property="og:image" content="https://uwinbeverage.ru/assets/silver-system.jpg">
   <link rel="canonical" href="https://uwinbeverage.ru/">
   <link rel="icon" href="assets/uwin-group-logo-white.png" type="image/png">
-  <link rel="stylesheet" href="styles.css?v=20260723-04">
+  <link rel="stylesheet" href="styles.css?v=20260723-05">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -438,7 +438,7 @@
             <p>Пищевая добавка для производства питьевой воды и напитков. Полный комплект документов предоставим технологу и службе качества.</p>
           </div>
           <div class="proof-document__actions">
-            <a class="button button--primary" href="mailto:service@uwingroup.ru?subject=Запрос%20декларации%20SILVER%20Ag%2B">Запросить декларацию</a>
+            <button class="button button--primary js-documents-modal-open" type="button" aria-haspopup="dialog" aria-controls="documents-modal">Запросить декларацию</button>
             <a class="proof-link" href="https://clck.ru/3Uuiu8" target="_blank" rel="noopener">Открыть презентацию <span>↗</span></a>
           </div>
         </div>
@@ -705,6 +705,52 @@
     </section>
   </div>
 
+  <div class="pilot-modal" id="documents-modal" hidden>
+    <div class="pilot-modal__backdrop" data-documents-modal-close></div>
+    <section class="pilot-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="documents-modal-title" aria-describedby="documents-modal-description">
+      <button class="pilot-modal__close" type="button" data-documents-modal-close aria-label="Закрыть форму">×</button>
+
+      <div class="pilot-modal__heading">
+        <p>ДОКУМЕНТЫ НА SILVER Ag+</p>
+        <h2 id="documents-modal-title">Получить комплект документов</h2>
+        <span id="documents-modal-description">Вышлем декларацию о соответствии и полный комплект документов, сопровождающий поставку SILVER Ag+, — для технолога и службы качества.</span>
+      </div>
+
+      <form class="pilot-modal__form" action="api/documents-request.php" method="post">
+        <label>
+          <span>Имя</span>
+          <input type="text" name="name" autocomplete="name" maxlength="80" placeholder="Как к вам обращаться" required>
+        </label>
+        <label>
+          <span>Телефон</span>
+          <input type="tel" name="phone" autocomplete="tel" inputmode="tel" maxlength="40" placeholder="+7 ___ ___-__-__" required>
+        </label>
+        <label>
+          <span>Рабочая почта</span>
+          <input type="email" name="email" autocomplete="email" maxlength="120" placeholder="name@company.ru" required>
+        </label>
+
+        <label class="pilot-modal__consent">
+          <input type="checkbox" name="consent" value="yes" required>
+          <span>Даю согласие на обработку персональных данных в соответствии с <a href="https://disk.yandex.ru/i/6JsinyTwX-1fiA" target="_blank" rel="noopener">политикой конфиденциальности</a></span>
+        </label>
+
+        <input class="pilot-modal__trap" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <input type="hidden" name="source_url">
+        <input type="hidden" name="referrer">
+        <input type="hidden" name="utm_source">
+        <input type="hidden" name="utm_medium">
+        <input type="hidden" name="utm_campaign">
+        <input type="hidden" name="utm_content">
+        <input type="hidden" name="utm_term">
+        <input type="hidden" name="yclid">
+
+        <button class="button button--primary" type="submit">Запросить комплект документов</button>
+        <p class="pilot-modal__note" id="documents-modal-status" aria-live="polite">Комплект документов направим на указанную рабочую почту.</p>
+      </form>
+    </section>
+  </div>
+
   <footer class="site-footer" id="company">
     <div class="wrap">
       <div class="footer-main">
@@ -762,6 +808,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=20260723-08"></script>
+  <script src="script.js?v=20260723-09"></script>
 </body>
 </html>

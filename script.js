@@ -155,6 +155,16 @@ setupLeadModal({
   }
 });
 
+setupLeadModal({
+  modalSelector: '#documents-modal',
+  openerSelector: '.js-documents-modal-open',
+  closeSelector: '[data-documents-modal-close]',
+  errorMessages: {
+    'documents-error': 'Проверьте заполнение полей и отправьте запрос ещё раз.',
+    'documents-send-error': 'Не удалось отправить запрос. Позвоните нам по номеру в шапке сайта или попробуйте ещё раз.'
+  }
+});
+
 const siteHeader = document.querySelector('.site-header');
 const menuToggle = document.querySelector('.menu-toggle');
 const siteNav = document.querySelector('#site-nav');
