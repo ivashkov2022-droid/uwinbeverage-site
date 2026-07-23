@@ -57,7 +57,7 @@ $trackingLabels = [
 ];
 
 $message = [
-    'Новый запрос на подбор схемы внедрения SILVER Ag+',
+    'Новый запрос на подбор схемы дозирования SILVER Ag+',
     '',
     'Имя: ' . $name,
     'Телефон: ' . $phone,
@@ -80,7 +80,7 @@ $message[] = '';
 $message[] = 'Дата запроса: ' . date('d.m.Y H:i:s T');
 
 $recipient = 'service@uwingroup.ru';
-$subject = 'Новый запрос на подбор схемы внедрения SILVER Ag+';
+$subject = 'Новый запрос на подбор схемы дозирования SILVER Ag+';
 $encodedSubject = '=?UTF-8?B?' . base64_encode($subject) . '?=';
 $headers = [
     'From: SILVER Ag+ <no-reply@uwinbeverage.ru>',
