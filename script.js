@@ -15,28 +15,51 @@ if ('IntersectionObserver' in window) {
   revealItems.forEach((item) => item.classList.add('is-visible'));
 }
 
+const trackingFields = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'yclid'];
+
+const fillTrackingFields = (form) => {
+  if (!form) return;
+
+  const pageParams = new URLSearchParams(window.location.search);
+  if (form.elements.source_url) form.elements.source_url.value = window.location.href;
+  if (form.elements.referrer) form.elements.referrer.value = document.referrer;
+  trackingFields.forEach((field) => {
+    if (form.elements[field]) form.elements[field].value = pageParams.get(field) || '';
+  });
+};
+
 const pilotForm = document.querySelector('#pilot-form');
 
 if (pilotForm) {
-  pilotForm.addEventListener('submit', (event) => {
-    event.preventDefault();
+  const status = document.querySelector('#form-status');
+  const pageParams = new URLSearchParams(window.location.search);
+  const contactErrors = {
+    'contact-error': 'Проверьте заполнение полей и отправьте заявку ещё раз.',
+    'contact-send-error': 'Не удалось отправить заявку. Позвоните нам по номеру в блоке контактов или попробуйте ещё раз.'
+  };
+  const formResult = pageParams.get('form');
 
-    const data = new FormData(pilotForm);
-    const subject = `Заявка на пилот SILVER Ag+ — ${data.get('company') || data.get('name')}`;
-    const body = [
-      `Имя: ${data.get('name') || '—'}`,
-      `Компания: ${data.get('company') || '—'}`,
-      `Телефон: ${data.get('phone') || '—'}`,
-      `Почта: ${data.get('email') || '—'}`,
-      '',
-      'Задача:',
-      data.get('task') || '—'
-    ].join('\n');
+  fillTrackingFields(pilotForm);
 
-    const status = document.querySelector('#form-status');
-    if (status) status.textContent = 'Заявка подготовлена. Открываем почтовое приложение…';
+  if (status && formResult && Object.prototype.hasOwnProperty.call(contactErrors, formResult)) {
+    status.textContent = contactErrors[formResult];
+    status.classList.add('is-error');
 
-    window.location.href = `mailto:service@uwingroup.ru?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    pageParams.delete('form');
+    const cleanQuery = pageParams.toString();
+    window.history.replaceState({}, '', `${window.location.pathname}${cleanQuery ? `?${cleanQuery}` : ''}${window.location.hash}`);
+  }
+
+  pilotForm.addEventListener('submit', () => {
+    const submitButton = pilotForm.querySelector('button[type="submit"]');
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.textContent = 'Отправляем заявку…';
+    }
+    if (status) {
+      status.textContent = 'Передаём заявку. Пожалуйста, не закрывайте страницу.';
+      status.classList.remove('is-error');
+    }
   });
 }
 
@@ -108,13 +131,8 @@ const setupLeadModal = ({ modalSelector, openerSelector, closeSelector, errorMes
   });
 
   const pageParams = new URLSearchParams(window.location.search);
-  const trackingFields = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'yclid'];
 
-  form.elements.source_url.value = window.location.href;
-  form.elements.referrer.value = document.referrer;
-  trackingFields.forEach((field) => {
-    form.elements[field].value = pageParams.get(field) || '';
-  });
+  fillTrackingFields(form);
 
   const formResult = pageParams.get('form');
   if (formResult && Object.prototype.hasOwnProperty.call(errorMessages, formResult)) {

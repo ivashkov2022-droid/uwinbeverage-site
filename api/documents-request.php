@@ -1,6 +1,8 @@
 <?php
 declare(strict_types=1);
 
+require_once __DIR__ . '/form-session.php';
+
 if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
     http_response_code(405);
     header('Allow: POST');
@@ -101,4 +103,5 @@ if (!$sent) {
     redirect_to('../?form=documents-send-error#proof');
 }
 
-redirect_to('../thanks-documents.html');
+grant_thank_you_access('documents');
+redirect_to('../thanks-documents.php');

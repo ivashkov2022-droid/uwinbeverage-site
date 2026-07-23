@@ -1,24 +1,30 @@
+<?php
+declare(strict_types=1);
+
+require_once __DIR__ . '/api/form-session.php';
+require_thank_you_access('service', './#service');
+?>
 <!doctype html>
 <html lang="ru">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Спасибо — заявка на пилот SILVER Ag+ принята</title>
-  <meta name="description" content="Заявка на бесплатный пилот SILVER Ag+ принята.">
+  <title>Спасибо — сервисная задача принята</title>
+  <meta name="description" content="Сервисная задача для команды ГК «Ювин» принята.">
   <meta name="robots" content="noindex, nofollow, noarchive">
   <meta name="theme-color" content="#061b3d">
   <link rel="icon" href="assets/uwin-group-logo-white.png" type="image/png">
-  <link rel="stylesheet" href="styles.css?v=20260723-04">
+  <link rel="stylesheet" href="styles.css?v=20260723-13">
 </head>
 <body class="thank-you-page">
   <header class="thank-you-header">
-    <a class="brand" href="./" aria-label="SILVER Ag+ — вернуться на главную">
+    <a class="brand" href="./" aria-label="Группа компаний Ювин — вернуться на главную">
       <img src="assets/uwin-group-logo-white.png" alt="">
       <span class="brand__company">Группа компаний<br><strong>Ювин</strong></span>
       <span class="brand__product">SILVER <b>Ag<sup>+</sup></b></span>
     </a>
     <a class="thank-you-header__phone" href="tel:+79230017816">
-      <span>Обсудить применение</span>
+      <span>Обсудить сервисную задачу</span>
       <strong>+7 923 001-78-16</strong>
     </a>
   </header>
@@ -26,10 +32,10 @@
   <main class="thank-you-main">
     <section class="thank-you-card" aria-labelledby="thank-you-title">
       <div class="thank-you-card__signal" aria-hidden="true"><span>✓</span></div>
-      <p>ЗАЯВКА ПРИНЯТА · БЕСПЛАТНЫЙ ПИЛОТ</p>
+      <p>ЗАПРОС ПРИНЯТ · СЕРВИСНАЯ КОМАНДА «ЮВИН»</p>
       <h1 id="thank-you-title">Спасибо!</h1>
-      <h2>Заявка на бесплатный пилот принята</h2>
-      <p class="thank-you-card__lead">Мы бесплатно предоставим всё необходимое и свяжемся с вами, чтобы согласовать условия доставки и проведения теста.</p>
+      <h2>Сервисная задача принята</h2>
+      <p class="thank-you-card__lead">Специалист сервисной команды свяжется с вами, чтобы уточнить задачу по линии и предложить подходящий формат работ.</p>
       <div class="thank-you-card__actions">
         <a class="button button--primary" href="./">Вернуться на сайт</a>
         <a class="thank-you-card__phone" href="tel:+79230017816">Позвонить: +7 923 001-78-16</a>

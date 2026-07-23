@@ -1,6 +1,8 @@
 <?php
 declare(strict_types=1);
 
+require_once __DIR__ . '/form-session.php';
+
 if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
     http_response_code(405);
     header('Allow: POST');
@@ -102,4 +104,5 @@ if (!$sent) {
     redirect_to('../?form=scheme-send-error#implementation');
 }
 
-redirect_to('../thanks-scheme.html');
+grant_thank_you_access('scheme');
+redirect_to('../thanks-scheme.php');

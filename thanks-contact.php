@@ -1,14 +1,20 @@
+<?php
+declare(strict_types=1);
+
+require_once __DIR__ . '/api/form-session.php';
+require_thank_you_access('contact', './#contact');
+?>
 <!doctype html>
 <html lang="ru">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Спасибо — запрос на комплект документов SILVER Ag+ принят</title>
-  <meta name="description" content="Запрос на комплект документов SILVER Ag+ принят.">
+  <title>Спасибо — заявка с сайта SILVER Ag+ принята</title>
+  <meta name="description" content="Заявка с сайта SILVER Ag+ принята.">
   <meta name="robots" content="noindex, nofollow, noarchive">
   <meta name="theme-color" content="#061b3d">
   <link rel="icon" href="assets/uwin-group-logo-white.png" type="image/png">
-  <link rel="stylesheet" href="styles.css?v=20260723-05">
+  <link rel="stylesheet" href="styles.css?v=20260723-13">
 </head>
 <body class="thank-you-page">
   <header class="thank-you-header">
@@ -26,10 +32,10 @@
   <main class="thank-you-main">
     <section class="thank-you-card" aria-labelledby="thank-you-title">
       <div class="thank-you-card__signal" aria-hidden="true"><span>✓</span></div>
-      <p>ЗАПРОС ПРИНЯТ · ДОКУМЕНТЫ SILVER Ag+</p>
+      <p>ЗАЯВКА ПРИНЯТА · КОНТАКТНАЯ ФОРМА</p>
       <h1 id="thank-you-title">Спасибо!</h1>
-      <h2>Запрос на комплект документов принят</h2>
-      <p class="thank-you-card__lead">Подготовим и направим на указанную рабочую почту декларацию о соответствии и полный комплект документов, сопровождающий поставку SILVER Ag+.</p>
+      <h2>Заявка на пилот принята</h2>
+      <p class="thank-you-card__lead">Свяжемся с вами, чтобы уточнить параметры продукта, линии и условия проведения теста.</p>
       <div class="thank-you-card__actions">
         <a class="button button--primary" href="./">Вернуться на сайт</a>
         <a class="thank-you-card__phone" href="tel:+79230017816">Позвонить: +7 923 001-78-16</a>

@@ -15,7 +15,7 @@
   <meta property="og:image" content="https://uwinbeverage.ru/assets/silver-system.jpg">
   <link rel="canonical" href="https://uwinbeverage.ru/">
   <link rel="icon" href="assets/uwin-group-logo-white.png" type="image/png">
-  <link rel="stylesheet" href="styles.css?v=20260723-12">
+  <link rel="stylesheet" href="styles.css?v=20260723-13">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -594,19 +594,31 @@
             <a href="mailto:service@uwingroup.ru"><span>ПОЧТА</span><strong>service@uwingroup.ru</strong></a>
           </div>
         </div>
-        <form class="pilot-form" id="pilot-form" action="mailto:service@uwingroup.ru" method="post" enctype="text/plain">
+        <form class="pilot-form" id="pilot-form" action="api/pilot-request.php" method="post">
           <div class="form-row">
-            <label><span>Ваше имя</span><input type="text" name="name" autocomplete="name" placeholder="Как к вам обращаться" required></label>
-            <label><span>Компания</span><input type="text" name="company" autocomplete="organization" placeholder="Название производства"></label>
+            <label><span>Ваше имя</span><input type="text" name="name" autocomplete="name" maxlength="80" placeholder="Как к вам обращаться" required></label>
+            <label><span>Компания</span><input type="text" name="company" autocomplete="organization" maxlength="160" placeholder="Название производства"></label>
           </div>
           <div class="form-row">
-            <label><span>Телефон</span><input type="tel" name="phone" autocomplete="tel" placeholder="+7 ___ ___-__-__" required></label>
-            <label><span>Рабочая почта</span><input type="email" name="email" autocomplete="email" placeholder="name@company.ru"></label>
+            <label><span>Телефон</span><input type="tel" name="phone" autocomplete="tel" inputmode="tel" maxlength="40" placeholder="+7 ___ ___-__-__" required></label>
+            <label><span>Рабочая почта</span><input type="email" name="email" autocomplete="email" maxlength="120" placeholder="name@company.ru" required></label>
           </div>
-          <label><span>Что производите и какую задачу хотите проверить?</span><textarea name="task" rows="4" placeholder="Формат воды, тара, линия, текущая проблема"></textarea></label>
-          <label class="form-consent"><input type="checkbox" name="consent" required><span>Согласен на обработку данных и ознакомлен с <a href="https://disk.yandex.ru/i/6JsinyTwX-1fiA" target="_blank" rel="noopener">политикой конфиденциальности</a></span></label>
+          <label><span>Что производите и какую задачу хотите проверить?</span><textarea name="task" rows="4" maxlength="800" placeholder="Формат воды, тара, линия, текущая проблема"></textarea></label>
+          <label class="form-consent"><input type="checkbox" name="consent" value="yes" required><span>Согласен на обработку данных и ознакомлен с <a href="privacy.html" target="_blank" rel="noopener">политикой конфиденциальности</a></span></label>
+
+          <input class="pilot-modal__trap" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <input type="hidden" name="source_url">
+          <input type="hidden" name="referrer">
+          <input type="hidden" name="utm_source">
+          <input type="hidden" name="utm_medium">
+          <input type="hidden" name="utm_campaign">
+          <input type="hidden" name="utm_content">
+          <input type="hidden" name="utm_term">
+          <input type="hidden" name="yclid">
+          <input type="hidden" name="lead_source" value="contact-section">
+
           <button class="button button--primary" type="submit">Отправить заявку на пилот</button>
-          <p class="form-note" id="form-status" aria-live="polite">Откроется готовое письмо — останется нажать «Отправить».</p>
+          <p class="form-note" id="form-status" aria-live="polite">Свяжемся с вами, чтобы уточнить параметры продукта, линии и условия проведения теста.</p>
         </form>
       </div>
     </section>
@@ -639,7 +651,7 @@
 
         <label class="pilot-modal__consent">
           <input type="checkbox" name="consent" value="yes" required>
-          <span>Даю согласие на обработку персональных данных в соответствии с <a href="https://disk.yandex.ru/i/6JsinyTwX-1fiA" target="_blank" rel="noopener">политикой конфиденциальности</a></span>
+          <span>Даю согласие на обработку персональных данных в соответствии с <a href="privacy.html" target="_blank" rel="noopener">политикой конфиденциальности</a></span>
         </label>
 
         <input class="pilot-modal__trap" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
@@ -690,7 +702,7 @@
 
         <label class="pilot-modal__consent">
           <input type="checkbox" name="consent" value="yes" required>
-          <span>Даю согласие на обработку персональных данных в соответствии с <a href="https://disk.yandex.ru/i/6JsinyTwX-1fiA" target="_blank" rel="noopener">политикой конфиденциальности</a></span>
+          <span>Даю согласие на обработку персональных данных в соответствии с <a href="privacy.html" target="_blank" rel="noopener">политикой конфиденциальности</a></span>
         </label>
 
         <input class="pilot-modal__trap" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
@@ -736,7 +748,7 @@
 
         <label class="pilot-modal__consent">
           <input type="checkbox" name="consent" value="yes" required>
-          <span>Даю согласие на обработку персональных данных в соответствии с <a href="https://disk.yandex.ru/i/6JsinyTwX-1fiA" target="_blank" rel="noopener">политикой конфиденциальности</a></span>
+          <span>Даю согласие на обработку персональных данных в соответствии с <a href="privacy.html" target="_blank" rel="noopener">политикой конфиденциальности</a></span>
         </label>
 
         <input class="pilot-modal__trap" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
@@ -786,7 +798,7 @@
 
         <label class="pilot-modal__consent">
           <input type="checkbox" name="consent" value="yes" required>
-          <span>Даю согласие на обработку персональных данных в соответствии с <a href="https://disk.yandex.ru/i/6JsinyTwX-1fiA" target="_blank" rel="noopener">политикой конфиденциальности</a></span>
+          <span>Даю согласие на обработку персональных данных в соответствии с <a href="privacy.html" target="_blank" rel="noopener">политикой конфиденциальности</a></span>
         </label>
 
         <input class="pilot-modal__trap" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
@@ -859,12 +871,12 @@
       <div class="footer-bottom">
         <span>© ООО ГК «Ювин»</span>
         <strong>SILVER Ag+ для стабильности воды и напитков</strong>
-        <a href="https://disk.yandex.ru/i/6JsinyTwX-1fiA" target="_blank" rel="noopener">Политика конфиденциальности</a>
+        <a href="privacy.html">Политика конфиденциальности</a>
         <a href="#top">Наверх ↑</a>
       </div>
     </div>
   </footer>
 
-  <script src="script.js?v=20260723-11"></script>
+  <script src="script.js?v=20260723-12"></script>
 </body>
 </html>
