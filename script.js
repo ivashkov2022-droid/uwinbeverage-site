@@ -16,15 +16,49 @@ if ('IntersectionObserver' in window) {
 }
 
 const trackingFields = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'yclid'];
+const trackingStorageKey = 'uwin_lead_attribution';
+
+const readTrackingData = () => {
+  try {
+    const storedValue = window.sessionStorage.getItem(trackingStorageKey);
+    const storedData = storedValue ? JSON.parse(storedValue) : {};
+    return storedData && typeof storedData === 'object' ? storedData : {};
+  } catch {
+    return {};
+  }
+};
+
+const collectTrackingData = () => {
+  const pageParams = new URLSearchParams(window.location.search);
+  const trackingData = readTrackingData();
+
+  trackingFields.forEach((field) => {
+    const currentValue = pageParams.get(field);
+    if (currentValue) trackingData[field] = currentValue;
+  });
+
+  if (!trackingData.referrer && document.referrer) {
+    trackingData.referrer = document.referrer;
+  }
+
+  try {
+    window.sessionStorage.setItem(trackingStorageKey, JSON.stringify(trackingData));
+  } catch {
+    // Формы остаются рабочими, даже если браузер блокирует sessionStorage.
+  }
+
+  return trackingData;
+};
 
 const fillTrackingFields = (form) => {
   if (!form) return;
 
+  const trackingData = collectTrackingData();
   const pageParams = new URLSearchParams(window.location.search);
   if (form.elements.source_url) form.elements.source_url.value = window.location.href;
-  if (form.elements.referrer) form.elements.referrer.value = document.referrer;
+  if (form.elements.referrer) form.elements.referrer.value = trackingData.referrer || document.referrer;
   trackingFields.forEach((field) => {
-    if (form.elements[field]) form.elements[field].value = pageParams.get(field) || '';
+    if (form.elements[field]) form.elements[field].value = pageParams.get(field) || trackingData[field] || '';
   });
 };
 

@@ -1,5 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /api/
+Disallow: /references/
+Disallow: /tmp/
 
 Sitemap: https://uwinbeverage.ru/sitemap.xml

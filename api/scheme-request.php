@@ -9,6 +9,8 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
     exit('Method Not Allowed');
 }
 
+reject_cross_site_submission();
+
 function form_value(string $key, int $maxLength = 500): string
 {
     $value = trim((string) ($_POST[$key] ?? ''));
@@ -31,6 +33,8 @@ if (form_value('website', 200) !== '') {
     http_response_code(204);
     exit;
 }
+
+enforce_submission_rate_limit('scheme');
 
 $name = form_value('name', 80);
 $phone = form_value('phone', 40);

@@ -9,6 +9,8 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
     exit('Method Not Allowed');
 }
 
+reject_cross_site_submission();
+
 function form_value(string $key, int $maxLength = 500): string
 {
     $value = trim((string) ($_POST[$key] ?? ''));
@@ -49,6 +51,8 @@ $leadSourceLabel = $leadSources[$leadSource] ?? 'Не определён';
 $isContactForm = $leadSource === 'contact-section';
 $errorAnchor = $isContactForm ? '../?form=contact-error#contact' : '../?form=error#top';
 $sendErrorAnchor = $isContactForm ? '../?form=contact-send-error#contact' : '../?form=send-error#top';
+
+enforce_submission_rate_limit($isContactForm ? 'contact' : 'pilot');
 
 if (
     $name === ''
