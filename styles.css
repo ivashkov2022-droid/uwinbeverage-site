@@ -947,7 +947,14 @@ body.modal-open { overflow: hidden; }
   .thank-you-card__lead { margin-top: 20px; font-size: 15px; }
   .thank-you-card__actions { margin-top: 28px; flex-direction: column; align-items: stretch; gap: 18px; }
   .thank-you-card__phone { text-align: center; }
-  .thank-you-footer { min-height: 84px; padding: 18px 16px; flex-direction: column; align-items: flex-start; justify-content: center; gap: 8px; }
+  .thank-you-footer {
+    min-height: 84px;
+    padding: 18px 16px calc(82px + env(safe-area-inset-bottom));
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 8px;
+  }
   .privacy-header { min-height: 76px; padding: 0 16px; }
   .privacy-header .brand__company { display: inline; }
   .privacy-header__back { font-size: 11px; }
@@ -960,7 +967,14 @@ body.modal-open { overflow: hidden; }
   .privacy-content h3 { font-size: 18px; }
   .privacy-content p { font-size: 15px; line-height: 1.65; }
   .privacy-details { padding: 19px; }
-  .privacy-footer { min-height: 84px; padding: 18px 16px; flex-direction: column; align-items: flex-start; justify-content: center; gap: 8px; }
+  .privacy-footer {
+    min-height: 84px;
+    padding: 18px 16px calc(82px + env(safe-area-inset-bottom));
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 8px;
+  }
   .site-footer {
     padding-top: 58px;
     padding-bottom: calc(82px + env(safe-area-inset-bottom));

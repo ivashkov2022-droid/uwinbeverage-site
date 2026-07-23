@@ -14,7 +14,7 @@ require_thank_you_access('service', './#service');
   <meta name="robots" content="noindex, nofollow, noarchive">
   <meta name="theme-color" content="#061b3d">
   <link rel="icon" href="assets/uwin-group-logo-white.png" type="image/png">
-  <link rel="stylesheet" href="styles.css?v=20260723-13">
+  <link rel="stylesheet" href="styles.css?v=20260723-23">
 </head>
 <body class="thank-you-page">
   <header class="thank-you-header">
