@@ -556,6 +556,8 @@ body.modal-open { overflow: hidden; }
 .footer-bottom { min-height: 76px; position: relative; z-index: 1; display: grid; grid-template-columns: auto 1fr auto auto; align-items: center; gap: 30px; border-top: 1px solid rgba(255,255,255,.1); color: #667e95; font-size: 10px; }
 .footer-bottom strong { justify-self: center; color: #a8bacb; font-size: 10px; letter-spacing: .06em; }
 .footer-bottom a { color: #88a1b8; }
+.footer-bottom .footer-policy-link { color: #b8c9d9; font-size: 12px; font-weight: 700; }
+.footer-bottom .footer-policy-link:hover { color: var(--white); }
 .footer-bottom a:last-child { color: var(--cyan-300); }
 
 .thank-you-page {
@@ -947,7 +949,7 @@ body.modal-open { overflow: hidden; }
   .thank-you-card__phone { text-align: center; }
   .thank-you-footer { min-height: 84px; padding: 18px 16px; flex-direction: column; align-items: flex-start; justify-content: center; gap: 8px; }
   .privacy-header { min-height: 76px; padding: 0 16px; }
-  .privacy-header .brand__company { display: none; }
+  .privacy-header .brand__company { display: inline; }
   .privacy-header__back { font-size: 11px; }
   .privacy-main { width: min(100% - 32px, 1120px); padding: 38px 0 64px; }
   .privacy-card { padding: 32px 22px; border-radius: 20px; }
