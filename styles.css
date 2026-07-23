@@ -132,7 +132,7 @@ body.menu-open { overflow: hidden; }
 
 .hero__visual { min-height: 610px; position: relative; display: grid; place-items: center; }
 .product-frame { position: relative; z-index: 2; width: min(100%, 650px); margin: 0; padding: 12px; border: 1px solid rgba(153,211,224,.28); border-radius: 30px; background: linear-gradient(145deg, rgba(255,255,255,.12), rgba(255,255,255,.025)); box-shadow: 0 42px 90px rgba(0,0,0,.42); backdrop-filter: blur(12px); transform: none !important; rotate: 0deg !important; }
-.product-frame img { width: 100%; aspect-ratio: 1.08; display: block; object-fit: cover; border-radius: 21px; filter: saturate(.72) contrast(1.06) sepia(.03); }
+.product-frame img { width: 100%; height: auto; aspect-ratio: 1.08; display: block; object-fit: cover; border-radius: 21px; filter: saturate(.72) contrast(1.06) sepia(.03); }
 .product-frame figcaption { position: absolute; left: 31px; right: 31px; bottom: 28px; padding: 15px 17px; border: 1px solid rgba(255,255,255,.24); border-radius: 12px; background: rgba(3,17,38,.82); backdrop-filter: blur(14px); display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 12px; }
 .signal-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--cyan-500); box-shadow: 0 0 0 7px rgba(32,199,232,.13), 0 0 24px var(--cyan-500); animation: signal 1.8s infinite; }
 .product-frame figcaption small { display: block; margin-bottom: 4px; color: #8ba4bb; font-size: 8px; letter-spacing: .15em; }
