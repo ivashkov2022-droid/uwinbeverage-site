@@ -531,9 +531,8 @@ body.modal-open { overflow: hidden; }
 .footer-column > strong, .footer-contacts > strong { min-height: 20px; margin-bottom: 8px; color: var(--cyan-300); font-size: 9px; letter-spacing: .19em; }
 .footer-column a { color: #a4b5c6; font-size: 13px; line-height: 1.35; transition: color .25s ease, transform .25s ease; }
 .footer-column a:hover { color: var(--white); transform: translateX(3px); }
-.footer-column .footer-presentation { display: inline-flex; align-items: baseline; gap: 5px; }
-.footer-presentation em { color: #c6d8e6; font-style: normal; font-weight: 650; }
-.footer-column .footer-presentation span { margin-left: 2px; color: var(--cyan-300); font-size: 8px; font-weight: 850; letter-spacing: .1em; white-space: nowrap; }
+.footer-presentation-row { display: flex; align-items: baseline; gap: 7px; }
+.footer-column .footer-pdf-link { color: var(--cyan-300); font-size: 8px; font-weight: 850; letter-spacing: .1em; white-space: nowrap; }
 .footer-contacts address { display: grid; gap: 13px; color: #91a5b9; font-size: 12px; font-style: normal; line-height: 1.55; }
 .footer-phones { margin-top: 6px; display: grid; gap: 6px; }
 .footer-phones a { color: var(--white); font-size: clamp(18px, 1.7vw, 25px); font-weight: 750; letter-spacing: -.025em; }
