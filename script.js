@@ -56,6 +56,9 @@ const setupLeadModal = ({ modalSelector, openerSelector, closeSelector, errorMes
   const openModal = (trigger) => {
     if (closeTimer) window.clearTimeout(closeTimer);
     activeTrigger = trigger || activeTrigger;
+    if (form.elements.lead_source) {
+      form.elements.lead_source.value = trigger?.dataset.leadSource || '';
+    }
     modal.hidden = false;
     document.body.classList.add('modal-open');
     window.requestAnimationFrame(() => {

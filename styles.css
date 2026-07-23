@@ -529,6 +529,11 @@ body.modal-open { overflow: hidden; }
 .footer-column > strong, .footer-contacts > strong { min-height: 20px; margin-bottom: 8px; color: var(--cyan-300); font-size: 9px; letter-spacing: .19em; }
 .footer-column a { color: #a4b5c6; font-size: 13px; line-height: 1.35; transition: color .25s ease, transform .25s ease; }
 .footer-column a:hover { color: var(--white); transform: translateX(3px); }
+.footer-column .footer-presentation { width: 100%; max-width: 250px; margin: 3px 0 5px; padding: 15px 42px 15px 15px; position: relative; display: grid; gap: 6px; border: 1px solid rgba(126,232,245,.28); border-radius: 12px; background: linear-gradient(135deg, rgba(32,199,232,.11), rgba(12,65,148,.2)); }
+.footer-column .footer-presentation:hover { border-color: rgba(126,232,245,.62); background: linear-gradient(135deg, rgba(32,199,232,.18), rgba(12,65,148,.28)); transform: translateY(-2px); }
+.footer-presentation span { color: var(--cyan-300); font-size: 7px; font-weight: 850; letter-spacing: .15em; }
+.footer-presentation strong { color: var(--white); font-size: 13px; line-height: 1.25; }
+.footer-presentation i { position: absolute; right: 15px; top: 50%; color: var(--cyan-300); font-size: 18px; font-style: normal; transform: translateY(-50%); }
 .footer-contacts address { display: grid; gap: 13px; color: #91a5b9; font-size: 12px; font-style: normal; line-height: 1.55; }
 .footer-phones { margin-top: 6px; display: grid; gap: 6px; }
 .footer-phones a { color: var(--white); font-size: clamp(18px, 1.7vw, 25px); font-weight: 750; letter-spacing: -.025em; }

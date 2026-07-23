@@ -34,7 +34,13 @@ $name = form_value('name', 80);
 $phone = form_value('phone', 40);
 $email = form_value('email', 120);
 $consent = form_value('consent', 10);
+$leadSource = form_value('lead_source', 40);
 $phoneDigits = preg_replace('/\D+/', '', $phone) ?? '';
+$leadSources = [
+    'hero' => 'Первый экран',
+    'pilot-section' => 'Блок пилота',
+];
+$leadSourceLabel = $leadSources[$leadSource] ?? 'Не определён';
 
 if (
     $name === ''
@@ -61,6 +67,7 @@ $message = [
     'Имя: ' . $name,
     'Телефон: ' . $phone,
     'Почта: ' . $email,
+    'Источник заявки: ' . $leadSourceLabel,
     'Согласие на обработку персональных данных: получено',
     '',
     'Страница: ' . (form_value('source_url', 700) ?: '—'),
@@ -100,4 +107,5 @@ if (!$sent) {
     redirect_to('../?form=send-error#top');
 }
 
-redirect_to('../thanks.html');
+$thanksSource = array_key_exists($leadSource, $leadSources) ? $leadSource : 'unknown';
+redirect_to('../thanks.html?source=' . rawurlencode($thanksSource));
