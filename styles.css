@@ -467,6 +467,7 @@ body.menu-open { overflow: hidden; }
 @keyframes water-current { 0%,8% { left: -36%; opacity: 0; } 18% { opacity: .8; } 78% { opacity: .58; } 94%,100% { left: 108%; opacity: 0; } }
 
 @media (min-width: 901px) {
+  .implementation .section-heading h2 { line-height: .98; }
   .service-bridge .button--ghost span { color: var(--cyan-300); font-size: 18px; font-weight: 900; line-height: 1; }
 }
 
