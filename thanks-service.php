@@ -15,7 +15,7 @@ require_thank_you_access('service', './#service');
   <meta name="theme-color" content="#061b3d">
   <link rel="icon" href="assets/uwin-group-logo-white.png" type="image/png">
   <link rel="stylesheet" href="styles.css?v=20260724-03">
-  <script src="cookie-consent.js?v=20260724-04" defer></script>
+  <script src="cookie-consent.js?v=20260724-05" defer></script>
 </head>
 <body class="thank-you-page">
   <header class="thank-you-header">

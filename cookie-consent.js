@@ -143,16 +143,40 @@
     });
   };
 
-  const loadGoogleAnalytics = () => {
-    if (window.__uwinGoogleAnalyticsLoaded) return;
+  const updateGoogleConsent = (isAnalyticsGranted) => {
+    if (typeof window.gtag !== 'function') return;
+    window.gtag('consent', 'update', {
+      analytics_storage: isAnalyticsGranted ? 'granted' : 'denied',
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
+  };
+
+  const loadGoogleAnalytics = (isAnalyticsGranted = false) => {
+    if (window.__uwinGoogleAnalyticsLoaded) {
+      updateGoogleConsent(isAnalyticsGranted);
+      return;
+    }
     window.__uwinGoogleAnalyticsLoaded = true;
 
     window.dataLayer = window.dataLayer || [];
     window.gtag = window.gtag || function () {
       window.dataLayer.push(arguments);
     };
+    window.gtag('consent', 'default', {
+      analytics_storage: 'denied',
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      wait_for_update: 500
+    });
+    if (isAnalyticsGranted) updateGoogleConsent(true);
     window.gtag('js', new Date());
-    window.gtag('config', googleMeasurementId);
+    window.gtag('config', googleMeasurementId, {
+      allow_google_signals: false,
+      allow_ad_personalization_signals: false
+    });
 
     setupGoogleEvents();
     trackThankYouPage();
@@ -163,9 +187,9 @@
     document.head.appendChild(script);
   };
 
-  const loadAnalytics = () => {
+  const enableFullAnalytics = () => {
+    loadGoogleAnalytics(true);
     loadMetrika();
-    loadGoogleAnalytics();
   };
 
   const closeBanner = (banner) => {
@@ -193,7 +217,11 @@
 
       const choice = button.dataset.cookieChoice;
       saveConsent(choice);
-      if (choice === analyticsConsent) loadAnalytics();
+      if (choice === analyticsConsent) {
+        enableFullAnalytics();
+      } else {
+        loadGoogleAnalytics(false);
+      }
       closeBanner(banner);
     });
 
@@ -202,8 +230,9 @@
   };
 
   const consent = readConsent();
+  loadGoogleAnalytics(consent === analyticsConsent);
   if (consent === analyticsConsent) {
-    loadAnalytics();
+    loadMetrika();
   } else if (consent !== necessaryConsent) {
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', showBanner, { once: true });
