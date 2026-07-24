@@ -60,7 +60,7 @@
     banner.className = 'cookie-banner';
     banner.setAttribute('aria-label', 'Настройки cookie');
     banner.innerHTML = `
-      <p>Мы используем cookie для работы сайта, а Яндекс Метрику — только с вашего согласия. <a href="privacy.html#cookie">Подробнее</a></p>
+      <p>Мы используем cookie для корректной работы сайта и улучшения сервиса. <a href="privacy.html#cookie">Подробнее</a></p>
       <div class="cookie-banner__actions">
         <button class="cookie-banner__button cookie-banner__button--secondary" type="button" data-cookie-choice="necessary">Только необходимые</button>
         <button class="cookie-banner__button" type="button" data-cookie-choice="analytics">Разрешить</button>
