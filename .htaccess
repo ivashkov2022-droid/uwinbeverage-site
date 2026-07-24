@@ -13,6 +13,7 @@ ErrorDocument 404 /404.html
   RewriteRule ^index\.html$ https://uwinbeverage.ru/ [R=301,L]
 
   RewriteRule ^page147799916\.html$ / [R=301,L]
+  RewriteRule ^aqua/?$ / [R=301,L]
 
   RewriteRule (^|/)(?:\.git|references|tmp)(?:/|$) - [F,L,NC]
   RewriteRule (^|/)\.(?:env|gitignore|gitattributes)$ - [F,L,NC]
