@@ -14,11 +14,8 @@ require_thank_you_access('scheme', './#implementation');
   <meta name="robots" content="noindex, nofollow, noarchive">
   <meta name="theme-color" content="#061b3d">
   <link rel="icon" href="assets/uwin-group-logo-white.png" type="image/png">
-  <link rel="stylesheet" href="styles.css?v=20260723-23">
-  <script>
-  (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();k=e.createElement(t);a=e.getElementsByTagName(t)[0];k.async=1;k.src=r;a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");
-  ym(109726006,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true,webvisor:true});
-  </script>
+  <link rel="stylesheet" href="styles.css?v=20260724-01">
+  <script src="cookie-consent.js?v=20260724-01" defer></script>
 </head>
 <body class="thank-you-page">
   <header class="thank-you-header">
