@@ -31,11 +31,63 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Группа компаний Ювин",
-    "url": "https://uwinbeverage.ru/",
-    "email": "service@uwingroup.ru",
-    "telephone": "+79230017816"
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://uwinbeverage.ru/#organization",
+        "name": "Группа компаний Ювин",
+        "alternateName": "ГК «Ювин»",
+        "url": "https://uwinbeverage.ru/",
+        "logo": "https://uwinbeverage.ru/assets/uwin-group-logo-white.png",
+        "email": "service@uwingroup.ru",
+        "telephone": "+79230017816",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "sales and technical support",
+          "telephone": "+79230017816",
+          "email": "service@uwingroup.ru",
+          "availableLanguage": "Russian"
+        },
+        "sameAs": [
+          "https://uwingroup.ru/companies"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://uwinbeverage.ru/#website",
+        "url": "https://uwinbeverage.ru/",
+        "name": "SILVER Ag+",
+        "alternateName": [
+          "SILVER Argentum",
+          "Группа компаний Ювин"
+        ],
+        "inLanguage": "ru-RU",
+        "publisher": {
+          "@id": "https://uwinbeverage.ru/#organization"
+        }
+      },
+      {
+        "@type": "Product",
+        "@id": "https://uwinbeverage.ru/#product",
+        "name": "SILVER Ag+",
+        "alternateName": "SILVER Argentum",
+        "url": "https://uwinbeverage.ru/",
+        "image": "https://uwinbeverage.ru/assets/og-silver-ag.jpg",
+        "description": "Пищевая добавка для производства питьевой воды и напитков, предназначенная для стабильности продукта после розлива.",
+        "category": "Пищевая добавка для воды и напитков",
+        "brand": {
+          "@type": "Brand",
+          "name": "SILVER Ag+"
+        },
+        "manufacturer": {
+          "@id": "https://uwinbeverage.ru/#organization"
+        },
+        "audience": {
+          "@type": "BusinessAudience",
+          "audienceType": "Производители питьевой воды и напитков"
+        }
+      }
+    ]
   }
   </script>
   <script type="application/ld+json">
@@ -45,23 +97,43 @@
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "Что такое SILVER Ag+?",
-        "acceptedAnswer": {"@type": "Answer", "text": "SILVER Ag+ — пищевая добавка для производства питьевой воды и напитков на водной основе."}
+        "name": "Что именно представляет собой SILVER Ag+?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Это пищевая добавка на основе дистиллированной воды и ионов серебра Ag+, предназначенная для производства питьевой воды и напитков на водной основе."}
       },
       {
         "@type": "Question",
         "name": "Где добавка вводится в линию?",
-        "acceptedAnswer": {"@type": "Answer", "text": "Точка ввода и параметры стандартного дозирующего насоса подбираются по схеме конкретной линии розлива."}
+        "acceptedAnswer": {"@type": "Answer", "text": "В действующий производственный контур через стандартный дозирующий насос. Конкретную точку ввода и параметры подачи определяем по схеме вашей линии."}
       },
       {
         "@type": "Question",
-        "name": "Заменяет ли SILVER Ag+ мойку линии?",
-        "acceptedAnswer": {"@type": "Answer", "text": "Нет. Технология поддерживает микробиологическую стабильность между плановыми мойками, но не заменяет CIP и регламентную санитарную обработку."}
+        "name": "Потребуется ли перестраивать линию розлива?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Нет. Основной процесс розлива не меняется. Технолог изучает конфигурацию линии, выбирает оптимальную точку ввода — в потоке или накопительной ёмкости — и адаптирует схему дозирования под действующее оборудование."}
       },
       {
         "@type": "Question",
-        "name": "Как проверить технологию на своём производстве?",
-        "acceptedAnswer": {"@type": "Answer", "text": "Бесплатный пилот 0,5 литра рассчитан на тестовую партию до 3 тонн воды и проводится вместе с технологом предприятия."}
+        "name": "Меняет ли SILVER Ag+ вкус, цвет, прозрачность или минерализацию воды?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Нет. В расчётной дозировке SILVER Ag+ не влияет на органолептические показатели и исходную минерализацию воды: не меняет её вкус, цвет и прозрачность."}
+      },
+      {
+        "@type": "Question",
+        "name": "Для каких продуктов и форматов подходит SILVER Ag+?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Для производства питьевой и минеральной воды, а также напитков на водной основе. Технология применяется в ПЭТ и стекле, в форматах от 0,33 до 19 литров, включая оборотную тару."}
+      },
+      {
+        "@type": "Question",
+        "name": "Как SILVER Ag+ поддерживает стабильность линии розлива?",
+        "acceptedAnswer": {"@type": "Answer", "text": "SILVER Ag+ присутствует в рабочем контуре вместе с продуктом и сдерживает развитие случайной микрофлоры между плановыми мойками. Плановые CIP-мойки и санитарная обработка при этом сохраняются в действующем регламенте предприятия."}
+      },
+      {
+        "@type": "Question",
+        "name": "Какие документы получает предприятие вместе с SILVER Ag+?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Предоставляем декларацию ЕАЭС № RU Д-RU.РА09.В.07948/25, паспорт качества, протоколы испытаний и комплект сопроводительных документов для технолога и службы качества."}
+      },
+      {
+        "@type": "Question",
+        "name": "Что получает предприятие по итогам пилота?",
+        "acceptedAnswer": {"@type": "Answer", "text": "По итогам пилота у предприятия остаётся готовая схема внедрения: точка ввода, рассчитанная дозировка, параметры дозирования, программа сравнительного контроля и рекомендации по переходу в промышленный режим. Команда получает полное понимание того, как SILVER Ag+ работает именно на её воде и производственной линии."}
       }
     ]
   }
@@ -72,7 +144,7 @@
 
   <header class="site-header">
     <a class="brand" href="#top" aria-label="SILVER Ag+ — на главную">
-      <img src="assets/uwin-group-logo-white.png" alt="">
+      <img src="assets/uwin-group-logo-white.png" alt="" width="1024" height="1024" decoding="async">
       <span class="brand__company">Группа компаний<br><strong>Ювин</strong></span>
       <span class="brand__product">SILVER <b>Ag<sup>+</sup></b></span>
     </a>
@@ -491,12 +563,12 @@
         <div class="faq-list">
           <details class="faq-item reveal"><summary><span>01</span><strong>Что именно представляет собой SILVER Ag+?</strong><i aria-hidden="true">+</i></summary><div><p>Это пищевая добавка на основе дистиллированной воды и ионов серебра Ag+, предназначенная для производства питьевой воды и напитков на водной основе.</p></div></details>
           <details class="faq-item reveal"><summary><span>02</span><strong>Где добавка вводится в линию?</strong><i aria-hidden="true">+</i></summary><div><p>В действующий производственный контур через стандартный дозирующий насос. Конкретную точку ввода и параметры подачи определяем по схеме вашей линии.</p></div></details>
-          <details class="faq-item reveal"><summary><span>03</span><strong>Потребуется ли перестраивать линию розлива?</strong><i aria-hidden="true">+</i></summary><div><p>Основной процесс розлива не меняется. До пилота инженер проверяет доступную точку подключения и совместимость оборудования с фактической конфигурацией линии.</p></div></details>
-          <details class="faq-item reveal"><summary><span>04</span><strong>Меняются ли вкус, цвет и прозрачность воды?</strong><i aria-hidden="true">+</i></summary><div><p>Расчётная дозировка предназначена для сохранения органолептических свойств воды. Это отдельно контролируется на опытной и контрольной партиях.</p></div></details>
-          <details class="faq-item reveal"><summary><span>05</span><strong>Для каких продуктов и форматов подходит технология?</strong><i aria-hidden="true">+</i></summary><div><p>Для питьевой и минеральной воды, а также напитков на водной основе в ПЭТ и стекле — от 0,33 до 19 литров.</p></div></details>
-          <details class="faq-item reveal"><summary><span>06</span><strong>SILVER Ag+ заменяет CIP-мойку?</strong><i aria-hidden="true">+</i></summary><div><p>Нет. Технология поддерживает микробиологическую стабильность линии между плановыми мойками, но не заменяет регламентную санитарную обработку.</p></div></details>
-          <details class="faq-item reveal"><summary><span>07</span><strong>Какие документы получает предприятие?</strong><i aria-hidden="true">+</i></summary><div><p>Предоставляем декларацию ЕАЭС № RU Д-RU.РА09.В.07948/25 и комплект документов для работы технолога и службы качества.</p></div></details>
-          <details class="faq-item reveal"><summary><span>08</span><strong>Что остаётся у нас после пилота?</strong><i aria-hidden="true">+</i></summary><div><p>Рабочая схема ввода, рассчитанная дозировка, параметры сравнительного контроля и рекомендации для промышленного применения.</p></div></details>
+          <details class="faq-item reveal"><summary><span>03</span><strong>Потребуется ли перестраивать линию розлива?</strong><i aria-hidden="true">+</i></summary><div><p>Нет. Основной процесс розлива не меняется. Технолог изучает конфигурацию линии, выбирает оптимальную точку ввода — в потоке или накопительной ёмкости — и адаптирует схему дозирования под действующее оборудование.</p></div></details>
+          <details class="faq-item reveal"><summary><span>04</span><strong>Меняет ли SILVER Ag+ вкус, цвет, прозрачность или минерализацию воды?</strong><i aria-hidden="true">+</i></summary><div><p>Нет. В расчётной дозировке SILVER Ag+ не влияет на органолептические показатели и исходную минерализацию воды: не меняет её вкус, цвет и прозрачность.</p></div></details>
+          <details class="faq-item reveal"><summary><span>05</span><strong>Для каких продуктов и форматов подходит SILVER Ag+?</strong><i aria-hidden="true">+</i></summary><div><p>Для производства питьевой и минеральной воды, а также напитков на водной основе. Технология применяется в ПЭТ и стекле, в форматах от 0,33 до 19 литров, включая оборотную тару.</p></div></details>
+          <details class="faq-item reveal"><summary><span>06</span><strong>Как SILVER Ag+ поддерживает стабильность линии розлива?</strong><i aria-hidden="true">+</i></summary><div><p>SILVER Ag+ присутствует в рабочем контуре вместе с продуктом и сдерживает развитие случайной микрофлоры между плановыми мойками. Плановые CIP-мойки и санитарная обработка при этом сохраняются в действующем регламенте предприятия.</p></div></details>
+          <details class="faq-item reveal"><summary><span>07</span><strong>Какие документы получает предприятие вместе с SILVER Ag+?</strong><i aria-hidden="true">+</i></summary><div><p>Предоставляем декларацию ЕАЭС № RU Д-RU.РА09.В.07948/25, паспорт качества, протоколы испытаний и комплект сопроводительных документов для технолога и службы качества.</p></div></details>
+          <details class="faq-item reveal"><summary><span>08</span><strong>Что получает предприятие по итогам пилота?</strong><i aria-hidden="true">+</i></summary><div><p>По итогам пилота у предприятия остаётся готовая схема внедрения: точка ввода, рассчитанная дозировка, параметры дозирования, программа сравнительного контроля и рекомендации по переходу в промышленный режим. Команда получает полное понимание того, как SILVER Ag+ работает именно на её воде и производственной линии.</p></div></details>
         </div>
       </div>
     </section>
@@ -822,7 +894,7 @@
       <div class="footer-main">
         <div class="footer-brand">
           <a class="footer-logo" href="#top" aria-label="Группа компаний Ювин — к началу страницы">
-            <img src="assets/uwin-group-logo-white.png" alt="">
+            <img src="assets/uwin-group-logo-white.png" alt="" width="1024" height="1024" loading="lazy" decoding="async">
             <span>Группа компаний<br><strong>Ювин</strong></span>
           </a>
           <p>Пищевые технологии и инженерный сервис для производителей воды и напитков</p>
