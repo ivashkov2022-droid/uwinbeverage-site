@@ -1299,9 +1299,11 @@ body.modal-open { overflow: hidden; }
 @media (max-width: 420px) {
   .cookie-banner {
     left: 12px;
-    bottom: 12px;
+    bottom: calc(76px + env(safe-area-inset-bottom));
     width: calc(100vw - 24px);
+    max-height: calc(100dvh - 100px - env(safe-area-inset-bottom));
     padding: 15px;
+    overflow-y: auto;
   }
 
   .cookie-banner__actions {
