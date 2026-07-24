@@ -15,7 +15,19 @@ if ('IntersectionObserver' in window) {
   revealItems.forEach((item) => item.classList.add('is-visible'));
 }
 
-const trackingFields = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'yclid'];
+const trackingFields = [
+  'utm_source',
+  'utm_medium',
+  'utm_campaign',
+  'utm_content',
+  'utm_term',
+  'utm_id',
+  'yclid',
+  'gclid',
+  'wbraid',
+  'gbraid',
+  '_openstat'
+];
 const trackingStorageKey = 'uwin_lead_attribution';
 
 const readTrackingData = () => {
@@ -55,10 +67,19 @@ const fillTrackingFields = (form) => {
 
   const trackingData = collectTrackingData();
   const pageParams = new URLSearchParams(window.location.search);
-  if (form.elements.source_url) form.elements.source_url.value = window.location.href;
-  if (form.elements.referrer) form.elements.referrer.value = trackingData.referrer || document.referrer;
+  const ensureHiddenField = (name) => {
+    if (form.elements[name]) return form.elements[name];
+    const input = document.createElement('input');
+    input.type = 'hidden';
+    input.name = name;
+    form.appendChild(input);
+    return input;
+  };
+
+  ensureHiddenField('source_url').value = window.location.href;
+  ensureHiddenField('referrer').value = trackingData.referrer || document.referrer;
   trackingFields.forEach((field) => {
-    if (form.elements[field]) form.elements[field].value = pageParams.get(field) || trackingData[field] || '';
+    ensureHiddenField(field).value = pageParams.get(field) || trackingData[field] || '';
   });
 };
 

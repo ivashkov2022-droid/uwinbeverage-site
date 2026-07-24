@@ -2,6 +2,7 @@
 declare(strict_types=1);
 
 require_once __DIR__ . '/form-session.php';
+require_once __DIR__ . '/mail-delivery.php';
 
 if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
     http_response_code(405);
@@ -64,15 +65,6 @@ if (
     redirect_to($errorAnchor);
 }
 
-$trackingLabels = [
-    'utm_source' => 'UTM source',
-    'utm_medium' => 'UTM medium',
-    'utm_campaign' => 'UTM campaign',
-    'utm_content' => 'UTM content',
-    'utm_term' => 'UTM term',
-    'yclid' => 'YCLID',
-];
-
 $message = [
     'Новая заявка на бесплатный пилот SILVER Ag+',
     '',
@@ -83,39 +75,10 @@ $message = [
     'Задача: ' . ($task ?: 'не указана'),
     'Источник заявки: ' . $leadSourceLabel,
     'Согласие на обработку персональных данных: получено',
-    '',
-    'Страница: ' . (form_value('source_url', 700) ?: '—'),
-    'Источник перехода: ' . (form_value('referrer', 700) ?: '—'),
 ];
 
-foreach ($trackingLabels as $field => $label) {
-    $value = form_value($field, 240);
-    if ($value !== '') {
-        $message[] = $label . ': ' . $value;
-    }
-}
-
-$message[] = '';
-$message[] = 'Дата заявки: ' . date('d.m.Y H:i:s T');
-
-$recipient = 'service@uwingroup.ru';
 $subject = 'Новая заявка на бесплатный пилот SILVER Ag+';
-$encodedSubject = '=?UTF-8?B?' . base64_encode($subject) . '?=';
-$headers = [
-    'From: SILVER Ag+ <no-reply@uwinbeverage.ru>',
-    'Reply-To: ' . $email,
-    'MIME-Version: 1.0',
-    'Content-Type: text/plain; charset=UTF-8',
-    'Content-Transfer-Encoding: 8bit',
-    'X-Auto-Response-Suppress: All',
-];
-
-$sent = mail(
-    $recipient,
-    $encodedSubject,
-    implode("\r\n", $message),
-    implode("\r\n", $headers)
-);
+$sent = uwin_send_notification($subject, $message, $email);
 
 if (!$sent) {
     redirect_to($sendErrorAnchor);
