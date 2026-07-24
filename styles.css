@@ -1183,7 +1183,7 @@ body.modal-open { overflow: hidden; }
   }
   .site-footer {
     padding-top: 58px;
-    padding-bottom: calc(82px + env(safe-area-inset-bottom));
+    padding-bottom: 0;
   }
   .footer-main { grid-template-columns: 1fr; gap: 42px; padding-bottom: 46px; }
   .footer-brand { grid-column: auto; }
